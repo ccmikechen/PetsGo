@@ -1,12 +1,12 @@
 import { createStore, applyMiddleware } from 'redux';
 import { createLogger } from 'redux-logger';
-import rootReducer from '../reducers';
+import appReducer from '../reducers';
 import ReduxThunk from 'redux-thunk';
 
 const initialState = {};
 
 export default createStore(
-    rootReducer,
+    appReducer,
     initialState,
     applyMiddleware(
         ReduxThunk,

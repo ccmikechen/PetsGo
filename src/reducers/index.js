@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
-import test from './testReducer';
+import test from './test';
 
-const rootReducer = combineReducers({
+const appReducer = combineReducers({
     test
 });
 
-export default rootReducer;
+export default function(state, action) {
+  return appReducer(state, action);
+}
