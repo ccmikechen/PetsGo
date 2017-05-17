@@ -11,27 +11,27 @@ Navigation.startTabBasedApp({
     {
       screen: 'petsgo.HomeScreen',
       title: '首頁',
-      icon: require('../img/首頁.png'),
+      icon: require('../img/home.png'),
       navigatorStyle: {},
     }, {
       screen: 'petsgo.SearchScreen',
       title: '探索週邊',
-      icon: require('../img/地圖.png'),
+      icon: require('../img/map.png'),
       navigatorStyle: {},
     }, {
       screen: 'petsgo.CameraScreen',
       title: '拍照',
-      icon: require('../img/相機.png'),
+      icon: require('../img/camera.png'),
       navigatorStyle: {},
     }, {
       screen: 'petsgo.AdoptScreen',
       title: '寵物認養',
-      icon: require('../img/領養.png'),
+      icon: require('../img/adopt.png'),
       navigatorStyle: {},
     }, {
       screen: 'petsgo.InfoScreen',
       title: '個人資訊',
-      icon: require('../img/個人資訊.png'),
+      icon: require('../img/user.png'),
       navigatorStyle: {},
     }
   ],
