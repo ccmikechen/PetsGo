@@ -1,8 +1,8 @@
 import React from 'react';
-import { View } from 'react-native';
+import Search from '../../containers/Search';
 
 const SearchScreen = ({ navigator }) => (
-  <View />
+  <Search />
 );
 
 export default SearchScreen;
