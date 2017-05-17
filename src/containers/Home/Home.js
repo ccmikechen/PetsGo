@@ -1,8 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import Swiper from 'react-native-swiper';
-var ScrollableTabView = require('react-native-scrollable-tab-view');
-
+import ScrollableTabView from 'react-native-scrollable-tab-view';
 
 class Home extends React.Component {
   constructor(props) {
@@ -16,15 +15,9 @@ class Home extends React.Component {
           <Swiper
             height="100%"
             showsButtons={true}>
-            <View>
-              
-            </View>
-            <View>
-
-            </View>
-            <View>
-
-            </View>
+            <View></View>
+            <View></View>
+            <View></View>
           </Swiper>
         </View>
         <ScrollableTabView

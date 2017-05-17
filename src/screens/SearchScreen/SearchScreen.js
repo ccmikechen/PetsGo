@@ -1,8 +1,8 @@
 import React from 'react';
-import Home from '../../containers/Home';
+import { View } from 'react-native';
 
 const SearchScreen = ({ navigator }) => (
-  <Home navigator={navigator} />
+  <View />
 );
 
 export default SearchScreen;
