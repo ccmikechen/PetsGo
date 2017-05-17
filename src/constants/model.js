@@ -1,5 +1,5 @@
 import Immutable from 'immutable';
 
-export const TestState = {
-  text: ""
+export const UiState = {
+
 };
