@@ -1,8 +1,8 @@
 import React from 'react';
-import Home from '../../containers/Home';
+import { View } from 'react-native';
 
 const CameraScreen = ({ navigator }) => (
-  <Home navigator={navigator} />
+  <View />
 );
 
 export default CameraScreen;
