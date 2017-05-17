@@ -3320,6 +3320,10 @@ react-native-image-slider@^1.1.5:
   version "1.1.5"
   resolved "https://registry.yarnpkg.com/react-native-image-slider/-/react-native-image-slider-1.1.5.tgz#1fa8537d1e0477c41d6c3a05f3fe02ffcdddd150"
 
+react-native-maps@^0.15.0:
+  version "0.15.0"
+  resolved "https://registry.yarnpkg.com/react-native-maps/-/react-native-maps-0.15.0.tgz#f61720eb5ba59e39f2e1041783b489dbec98bb9c"
+
 react-native-navigation@^1.1.72:
   version "1.1.72"
   resolved "https://registry.yarnpkg.com/react-native-navigation/-/react-native-navigation-1.1.72.tgz#18e5067e74d5690b7bfddd100b06d5a7126ba2a8"
