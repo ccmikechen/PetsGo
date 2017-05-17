@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import test from './test';
+import ui from './ui/uiReducers';
 
 const appReducer = combineReducers({
-    test
+    ui
 });
 
 export default function(state, action) {

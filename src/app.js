@@ -10,31 +10,27 @@ Navigation.startTabBasedApp({
   tabs: [
     {
       screen: 'petsgo.HomeScreen',
-      title: 'petsgo',
+      title: '首頁',
       icon: require('../img/首頁.png'),
       navigatorStyle: {},
-    },
-    {
-      screen: 'petsgo.HomeScreen',
-      title: 'petsgo',
+    }, {
+      screen: 'petsgo.SearchScreen',
+      title: '探索週邊',
       icon: require('../img/地圖.png'),
       navigatorStyle: {},
-    },
-    {
-      screen: 'petsgo.HomeScreen',
-      title: 'petsgo',
+    }, {
+      screen: 'petsgo.CameraScreen',
+      title: '拍照',
       icon: require('../img/相機.png'),
       navigatorStyle: {},
-    },
-    {
-      screen: 'petsgo.HomeScreen',
-      title: 'petsgo',
+    }, {
+      screen: 'petsgo.AdoptScreen',
+      title: '寵物認養',
       icon: require('../img/領養.png'),
       navigatorStyle: {},
-    },
-    {
-      screen: 'petsgo.HomeScreen',
-      title: 'petsgo',
+    }, {
+      screen: 'petsgo.InfoScreen',
+      title: '個人資訊',
       icon: require('../img/個人資訊.png'),
       navigatorStyle: {},
     }
