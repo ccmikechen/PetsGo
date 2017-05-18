@@ -16,23 +16,19 @@ class SearchOptionToggleMenu extends React.Component {
       <View style={containerStyle}>
         <SearchOptionToggleButton
           style={styles.button}
-          title="動物醫院"
-          icon={require('../../../img/user.png')}
+          icon={require('../../../img/hospital_red.png')}
         />
         <SearchOptionToggleButton
           style={styles.button}
-          title="寵物餐廳"
-          icon={require('../../../img/user.png')}
+          icon={require('../../../img/restaurant_black.png')}
         />
         <SearchOptionToggleButton
           style={styles.button}
-          title="寵物美容"
-          icon={require('../../../img/user.png')}
+          icon={require('../../../img/Beauty_black.png')}
         />
         <SearchOptionToggleButton
           style={styles.button}
-          title="寵物用品店"
-          icon={require('../../../img/user.png')}
+          icon={require('../../../img/PetSupplies_black.png')}
         />
       </View>
     );
