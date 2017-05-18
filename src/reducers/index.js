@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux';
+import { combineReducers } from 'redux-immutable';
 import ui from './ui/uiReducers';
 import search from './search/searchReducers';
 

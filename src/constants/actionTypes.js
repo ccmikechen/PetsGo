@@ -1,1 +1,2 @@
 export const HELLO = 'HELLO';
+export const TOGGLE_SEARCH_OPTION = 'TOGGLE_SEARCH_OPTION';

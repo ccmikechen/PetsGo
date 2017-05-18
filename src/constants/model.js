@@ -1,10 +1,8 @@
 import Immutable from 'immutable';
 
-export const UiState = {
+export const UiState = Immutable.Map();
 
-};
-
-export const SearchState = {
+export const SearchState = Immutable.fromJS({
   options: {
     hospital: {
       actived: false
@@ -19,4 +17,4 @@ export const SearchState = {
       actived: false
     }
   }
-};
+});
