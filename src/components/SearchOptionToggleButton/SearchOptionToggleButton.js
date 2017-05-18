@@ -1,12 +1,12 @@
 import React from 'react';
-import { View, Image, Text, TouchableOpacity } from 'react-native';
+import { View, Image, Text, TouchableWithoutFeedback } from 'react-native';
 import styles from './styles';
 
 export default SearchOptionToggleButton = (props) => (
   <View
     style={props.style}
   >
-    <TouchableOpacity
+    <TouchableWithoutFeedback
       style={styles.container}
       onPress={props.onPress}
     >
@@ -16,6 +16,6 @@ export default SearchOptionToggleButton = (props) => (
         <Image style={styles.icon} source={props.icon} />
         <Text style={styles.text}>{props.title}</Text>
       </View>
-    </TouchableOpacity>
+    </TouchableWithoutFeedback>
   </View>
 );

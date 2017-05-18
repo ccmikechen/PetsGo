@@ -23,13 +23,13 @@ class SearchOptionToggleMenu extends React.Component {
       hospital: options.hospital.actived ?
         require('../../../img/hospital_red.png') :
         require('../../../img/hospital_black.png'),
-      restaurant: options.hospital.actived ?
+      restaurant: options.restaurant.actived ?
         require('../../../img/restaurant_red.png') :
         require('../../../img/restaurant_black.png'),
-      salon: options.hospital.actived ?
+      salon: options.salon.actived ?
         require('../../../img/salon_red.png') :
         require('../../../img/salon_black.png'),
-      necessities: options.hospital.actived ?
+      necessities: options.necessities.actived ?
         require('../../../img/necessities_red.png') :
         require('../../../img/necessities_black.png'),
     };
