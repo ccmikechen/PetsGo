@@ -1,7 +1,8 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text } from 'react-native';
 import Swiper from 'react-native-swiper';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
+import styles from './styles';
 
 class Home extends React.Component {
   constructor(props) {
@@ -10,8 +11,8 @@ class Home extends React.Component {
 
   render() {
     return (
-      <View style={{flex:1}}>
-        <View style={{flex:1}}>
+      <View style={styles.container}>
+        <View style={styles.container}>
           <Swiper
             height="100%"
             showsButtons={true}>
@@ -21,12 +22,12 @@ class Home extends React.Component {
           </Swiper>
         </View>
         <ScrollableTabView
-          style={{flex:2}}>
+          style={styles.scrollableTabView}>
           <View tabLabel="全部" />
-          <View tabLabel="協尋"/>
-          <View tabLabel="活動"/>
-          <View tabLabel="送養"/>
-          <View tabLabel="看護"/>
+          <View tabLabel="協尋" />
+          <View tabLabel="活動" />
+          <View tabLabel="送養" />
+          <View tabLabel="看護" />
         </ScrollableTabView>
       </View>
     );

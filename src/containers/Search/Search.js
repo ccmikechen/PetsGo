@@ -1,15 +1,8 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import MapView from 'react-native-maps';
-
-const styles = StyleSheet.create({
-  container: {
-    ...StyleSheet.absoluteFillObject,
-  },
-  map: {
-    ...StyleSheet.absoluteFillObject,
-  },
-});
+import { View } from 'react-native';
+import SearchOptionToggleMenu from '../SearchOptionToggleMenu';
+import SearchMap from '../../components/SearchMap';
+import styles from './styles';
 
 class Search extends React.Component {
   constructor(props) {
@@ -17,29 +10,10 @@ class Search extends React.Component {
   }
 
   render() {
-    const { region } = this.props;
-    console.log(region);
-
     return (
-      <View style ={styles.container}>
-        <MapView
-          style={styles.map}
-          region={{
-            latitude: 22.6426664,
-            longitude: 120.3284185,
-            latitudeDelta: 0.015,
-            longitudeDelta: 0.015,
-          }}
-        >
-          <MapView.Marker
-            coordinate={{
-              latitude: 22.6426664,
-              longitude: 120.3284185,
-            }}
-            title="test title"
-            description="test description"
-          />
-        </MapView>
+      <View style={styles.container}>
+        <SearchOptionToggleMenu style={styles.optionToggleMenu}/>
+        <SearchMap style={styles.map}/>
       </View>
     );
   }
