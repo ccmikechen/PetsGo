@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
 import ui from './ui/uiReducers';
+import search from './search/searchReducer';
 
 const appReducer = combineReducers({
-    ui
+    ui,
+    search
 });
 
 export default function(state, action) {
