@@ -24,10 +24,10 @@ class Home extends React.Component {
         <ScrollableTabView
           style={styles.scrollableTabView}>
           <View tabLabel="全部" />
-          <View tabLabel="協尋"/>
-          <View tabLabel="活動"/>
-          <View tabLabel="送養"/>
-          <View tabLabel="看護"/>
+          <View tabLabel="協尋" />
+          <View tabLabel="活動" />
+          <View tabLabel="送養" />
+          <View tabLabel="看護" />
         </ScrollableTabView>
       </View>
     );
