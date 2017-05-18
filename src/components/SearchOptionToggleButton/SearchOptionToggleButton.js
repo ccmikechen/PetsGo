@@ -6,10 +6,12 @@ export default SearchOptionToggleButton = (props) => (
   <View
     style={props.style}
   >
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity
+      style={styles.container}
+      onPress={props.onPress}
+    >
       <View
         style={styles.toggleButton}
-        onPress={props.onPress}
       >
         <Image style={styles.icon} source={props.icon} />
         <Text style={styles.text}>{props.title}</Text>
