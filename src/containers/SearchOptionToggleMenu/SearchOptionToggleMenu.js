@@ -19,9 +19,20 @@ class SearchOptionToggleMenu extends React.Component {
   render() {
     let { style, options } = this.props;
     let containerStyle = StyleSheet.flatten([styles.container, style]);
-    let icon = options.hospital.actived ?
-      require('../../../img/user.png') :
-      require('../../../img/home.png');
+    let icons = {
+      hospital: options.hospital.actived ?
+        require('../../../img/hospital_red.png') :
+        require('../../../img/hospital_black.png'),
+      restaurant: options.hospital.actived ?
+        require('../../../img/restaurant_red.png') :
+        require('../../../img/restaurant_black.png'),
+      salon: options.hospital.actived ?
+        require('../../../img/salon_red.png') :
+        require('../../../img/salon_black.png'),
+      necessities: options.hospital.actived ?
+        require('../../../img/necessities_red.png') :
+        require('../../../img/necessities_black.png'),
+    };
 
     return (
       <View style={containerStyle}>
@@ -29,25 +40,25 @@ class SearchOptionToggleMenu extends React.Component {
           style={styles.button}
           title="動物醫院"
           onPress={this.handleToggleOption('hospital')}
-          icon={icon}
+          icon={icons.hospital}
         />
         <SearchOptionToggleButton
           style={styles.button}
           title="寵物餐廳"
           onPress={this.handleToggleOption('restaurant')}
-          icon={require('../../../img/user.png')}
+          icon={icons.restaurant}
         />
         <SearchOptionToggleButton
           style={styles.button}
           title="寵物美容"
           onPress={this.handleToggleOption('salon')}
-          icon={require('../../../img/user.png')}
+          icon={icons.salon}
         />
         <SearchOptionToggleButton
           style={styles.button}
           title="寵物用品店"
           onPress={this.handleToggleOption('necessities')}
-          icon={require('../../../img/user.png')}
+          icon={icons.necessities}
         />
       </View>
     );
