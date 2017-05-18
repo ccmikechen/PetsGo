@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import MapView from 'react-native-maps';
 import styles from './styles';
 
-export default SearchMap = ({ style }) => (
+export default SearchMap = ({ style, locations }) => (
   <View style={style}>
     <MapView
       style={styles.map}
@@ -14,14 +14,16 @@ export default SearchMap = ({ style }) => (
         longitudeDelta: 0.015,
       }}
     >
-      <MapView.Marker
-        coordinate={{
-          latitude: 22.6426664,
-          longitude: 120.3284185,
-        }}
-        title="test title"
-        description="test description"
-      />
+      {locations.map(location => (
+        <MapView.Marker
+          coordinate={{
+            latitude: location.coordinate.lat,
+            longitude: location.coordinate.lng
+          }}
+          title={location.name}
+          description={location.address}
+        />
+      ))}
     </MapView>
   </View>
 );

@@ -16,5 +16,11 @@ export const SearchState = Immutable.fromJS({
     necessities: {
       actived: false
     }
+  },
+  locations: {
+    hospital: [],
+    restaurant: [],
+    salon: [],
+    necessities: []
   }
 });
