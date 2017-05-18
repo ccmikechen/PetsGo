@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import ui from './ui/uiReducers';
-import search from './search/searchReducer';
+import search from './search/searchReducers';
 
 const appReducer = combineReducers({
     ui,
