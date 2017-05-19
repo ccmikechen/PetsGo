@@ -3,16 +3,12 @@ import { View } from 'react-native';
 import MapView from 'react-native-maps';
 import styles from './styles';
 
-export default SearchMap = ({ style, locations }) => (
+export default SearchMap = ({ style, locations, region, onRegionChange }) => (
   <View style={style}>
     <MapView
       style={styles.map}
-      region={{
-        latitude: 22.6426664,
-        longitude: 120.3284185,
-        latitudeDelta: 0.015,
-        longitudeDelta: 0.015,
-      }}
+      region={region}
+      onRegionChange={onRegionChange}
     >
       {locations.map(location => (
         <MapView.Marker
@@ -22,6 +18,8 @@ export default SearchMap = ({ style, locations }) => (
           }}
           title={location.name}
           description={location.address}
+          key={location.id}
+          pinColor={location.color}
         />
       ))}
     </MapView>
