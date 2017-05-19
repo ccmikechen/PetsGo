@@ -1,8 +1,13 @@
+import Immutable from 'immutable';
 import { handleActions } from 'redux-actions';
 import { SearchState } from '../../constants/model';
 import {
     TOGGLE_SEARCH_OPTION,
-    UPDATE_HOSPITAL_DATA
+    UPDATE_HOSPITAL_DATA,
+    UPDATE_RESTAURANT_DATA,
+    UPDATE_SALON_DATA,
+    UPDATE_NECESSITIES_DATA,
+    UPDATE_REGION,
 } from '../../constants/actionTypes';
 
 const searchReducer = handleActions({
@@ -10,8 +15,20 @@ const searchReducer = handleActions({
     let { optionType, toggleState } = payload;
     return state.setIn(['options', optionType, 'actived'], toggleState);
   },
-  UPDATE_HOSPITAL_DATA: (state, { data }) => {
-    return state.setIn(['locations', 'hospital'], data);
+  UPDATE_HOSPITAL_DATA: (state, { data }) => (
+    state.setIn(['locations', 'hospital'], data)
+  ),
+  UPDATE_RESTAURANT_DATA: (state, { data }) => (
+    state.setIn(['locations', 'restaurant'], data)
+  ),
+  UPDATE_SALON_DATA: (state, { data }) => (
+    state.setIn(['locations', 'salon'], data)
+  ),
+  UPDATE_NECESSITIES_DATA: (state, { data }) => (
+    state.setIn(['locations', 'necessities'], data)
+  ),
+  UPDATE_REGION: (state, { region }) => {
+    return state.set('region', Immutable.fromJS(region));
   }
 }, SearchState);
 

@@ -22,5 +22,11 @@ export const SearchState = Immutable.fromJS({
     restaurant: [],
     salon: [],
     necessities: []
+  },
+  region: {
+    latitude: 22.6426664,
+    longitude: 120.3284185,
+    latitudeDelta: 0.015,
+    longitudeDelta: 0.015,
   }
 });

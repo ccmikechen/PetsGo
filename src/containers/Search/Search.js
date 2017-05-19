@@ -4,7 +4,7 @@ import { View, Alert } from 'react-native';
 import SearchOptionToggleMenu from '../SearchOptionToggleMenu';
 import SearchMap from '../../components/SearchMap';
 import styles from './styles';
-import { fetchStoresInfo } from '../../actions/searchActions';
+import { fetchStoresInfo, updateRegion } from '../../actions/searchActions';
 
 class Search extends React.Component {
   constructor(props) {
@@ -32,7 +32,8 @@ class Search extends React.Component {
   }
 
   render() {
-    let { options, locations } = this.props;
+    let { options, locations, region, updateRegion } = this.props;
+
     let filterdLocations = Object.keys(locations).reduce((list, key) => {
       let loc = locations[key];
       if (options[key].actived) {
@@ -42,13 +43,25 @@ class Search extends React.Component {
       }
     }, []);
 
+    let setLocationsColor = (locations) => locations.map((location) => {
+      const colorMap = {
+        hospital: 'red',
+        restaurant: 'orange',
+        salon: 'purple',
+        necessities: 'green'
+      };
+      return {...location, color: colorMap[location.type]};
+    });
+
     return (
       <View style={styles.container}>
         <SearchOptionToggleMenu style={styles.optionToggleMenu}/>
         <SearchMap
           style={styles.map}
-          locations={filterdLocations}
-          />
+          region={region}
+          locations={setLocationsColor(filterdLocations)}
+          onRegionChange={updateRegion}
+        />
       </View>
     );
   }
@@ -57,7 +70,8 @@ class Search extends React.Component {
 export default connect(
   (state) => ({
     locations: state.getIn(['search', 'locations']).toJS(),
-    options: state.getIn(['search', 'options']).toJS()
+    options: state.getIn(['search', 'options']).toJS(),
+    region: state.getIn(['search', 'region']).toJS()
   }),
-  { fetchStoresInfo }
+  { fetchStoresInfo, updateRegion }
 )(Search);
