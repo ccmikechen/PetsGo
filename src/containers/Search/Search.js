@@ -3,8 +3,10 @@ import { connect } from 'react-redux';
 import { View, Alert } from 'react-native';
 import SearchOptionToggleMenu from '../SearchOptionToggleMenu';
 import SearchMap from '../../components/SearchMap';
+import SearchLocationInfo from '../../components/SearchLocationInfo';
 import styles from './styles';
 import { fetchStoresInfo, updateRegion } from '../../actions/searchActions';
+
 
 class Search extends React.Component {
   constructor(props) {
@@ -62,6 +64,7 @@ class Search extends React.Component {
           locations={setLocationsColor(filterdLocations)}
           onRegionChange={updateRegion}
         />
+        <SearchLocationInfo style={styles.info}/>
       </View>
     );
   }

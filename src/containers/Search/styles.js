@@ -10,5 +10,9 @@ export default styles = StyleSheet.create({
   },
   map: {
     flex: 1
+  },
+  info: {
+    flexDirection: 'row',
+    height: 85
   }
 });
