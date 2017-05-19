@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { View, Button } from 'react-native';
+import GridView from 'react-native-grid-view';
+import AdoptionListItem from '../../components/AdoptionListItem';
 import styles from './styles';
 import { fetchAdoptionList } from '../../actions/adoptActions';
 
@@ -10,6 +12,11 @@ class Adopt extends React.Component {
     this.onPressUpdateButton = this.onPressUpdateButton.bind(this);
   }
 
+  componentWillMount() {
+    console.log('aa');
+    this.props.fetchAdoptionList();
+  }
+
   onPressUpdateButton = () => {
     this.props.fetchAdoptionList();
   }
@@ -17,9 +24,11 @@ class Adopt extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Button
-          title="UPDATE"
-          onPress={this.onPressUpdateButton}
+        <GridView
+          items={this.props.animals}
+          itemsPerRow={2}
+          renderItem={AdoptionListItem}
+          style={{flex: 1}}
         />
       </View>
     );
@@ -27,6 +36,8 @@ class Adopt extends React.Component {
 }
 
 export default connect(
-  null,
+  (state) => ({
+    animals: state.getIn(['adopt', 'animals'])
+  }),
   { fetchAdoptionList }
 )(Adopt);

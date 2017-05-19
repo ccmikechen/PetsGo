@@ -1,37 +1,35 @@
 import { StyleSheet } from 'react-native';
 
 export default styles = StyleSheet.create({
-  container: {
-    height: 100
-  },
   listItem: {
     flex: 1,
+    height: 210,
     flexDirection: 'row'
+  },
+  container: {
+    flex: 1,
+    flexDirection: 'column',
+    backgroundColor: '#FFFFFF',
+    padding: 10,
+    margin: 10,
+    borderRadius: 10,
+    alignItems: 'center'
   },
   image: {
-
-  },
-  info: {
-    flex: 1,
-    flexDirection: 'column'
-  },
-  addressAndSex: {
-    flex: 1,
-    flexDirection: 'row'
+    height: 140,
+    width: 140,
+    borderRadius: 10,
   },
   address: {
-    flex: 1
-  },
-  sexInfo: {
-    flex: 1
-  },
-  sex: {
-
+    flex: 1,
+    paddingTop: 10,
+    fontSize: 16
   },
   sexIcon: {
-
-  },
-  shelterName: {
-
+    position: 'absolute',
+    top: 0,
+    left: 120,
+    width: 40,
+    height: 40
   }
 });

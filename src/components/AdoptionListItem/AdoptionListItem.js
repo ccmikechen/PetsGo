@@ -2,26 +2,25 @@ import React from 'react';
 import { View, Image, Text, TouchableWithoutFeedback } from 'react-native';
 import styles from './styles';
 
-export default AdoptionListItem = (props) => (
-  <View style={props.style}>
+export default AdoptionListItem = ({ onPress, image, address, sex }) => (
+  <View style={styles.listItem}>
     <TouchableWithoutFeedback
-      style={styles.container}
-      onPress={props.onPress}
+      onPress={onPress}
     >
-      <View style={styles.listItem}>
-        <Image style={styles.image} source={props.icon} />
-        <View style={styles.info}>
-          <View style={styles.addressAndSex}>
-            <Text style={styles.address}>
-            </Text>
-            <View style={styles.sexInfo}>
-              <Text style={styles.sex}>
-              </Text>
-              <Image style={styles.sexIcon}/>
-            </View>
-          </View>
-          <Text style={styles.shelterName}>{props.title}</Text>
-        </View>
+      <View style={styles.container} elevation={5}>
+        <Image
+          style={styles.image}
+          source={{uri: image}}
+        />
+        <Text style={styles.address}>
+          {address}
+        </Text>
+        <Image
+          style={styles.sexIcon}
+          source={sex == 'M' ?
+            require('../../../img/home.png') :
+            require('../../../img/user.png')
+          } />
       </View>
     </TouchableWithoutFeedback>
   </View>
