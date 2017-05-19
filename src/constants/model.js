@@ -30,3 +30,7 @@ export const SearchState = Immutable.fromJS({
     longitudeDelta: 0.015,
   }
 });
+
+export const AdoptState = Immutable.fromJS({
+  animals: []
+});

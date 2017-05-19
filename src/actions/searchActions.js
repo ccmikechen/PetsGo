@@ -8,17 +8,15 @@ import {
     UPDATE_REGION,
 } from '../constants/actionTypes';
 
-export function toggleOption(optionType, toggleState) {
-  return dispatch => {
-    dispatch({
-      type: TOGGLE_SEARCH_OPTION,
-      payload: {
-        optionType,
-        toggleState
-      }
-    });
-  };
-};
+export const toggleOption = (optionType, toggleState) => (dispatch) => (
+  dispatch({
+    type: TOGGLE_SEARCH_OPTION,
+    payload: {
+      optionType,
+      toggleState
+    }
+  })
+);
 
 export const fetchStoresInfo = (position) => (dispatch) => {
   googleMap.getHospitals(position).then(results => {
