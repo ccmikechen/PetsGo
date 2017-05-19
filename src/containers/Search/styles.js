@@ -13,6 +13,6 @@ export default styles = StyleSheet.create({
   },
   info: {
     flexDirection: 'row',
-    height: 85
+    height: 95
   }
 });

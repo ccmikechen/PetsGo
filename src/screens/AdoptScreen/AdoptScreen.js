@@ -1,8 +1,7 @@
 import React from 'react';
-import { View } from 'react-native';
-
+import Adopt from '../../containers/Adopt';
 const AdoptScreen = ({ navigator }) => (
-  <View />
+  <Adopt />
 );
 
 export default AdoptScreen;
