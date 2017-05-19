@@ -43,6 +43,7 @@
 		14AC43FF1ECDEBCF00B71D0B /* DummyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14AC43EC1ECDEBCF00B71D0B /* DummyView.m */; };
 		14AC44001ECDEBCF00B71D0B /* RCTConvert+GMSMapViewType.m in Sources */ = {isa = PBXBuildFile; fileRef = 14AC43EE1ECDEBCF00B71D0B /* RCTConvert+GMSMapViewType.m */; };
 		14E00DFE1ECB337700153A78 /* libReactNativeNavigation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14E00DFD1ECB335700153A78 /* libReactNativeNavigation.a */; };
+		14E37EB71ECF24A600948CA4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14E37EB61ECF24A600948CA4 /* MapKit.framework */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -324,6 +325,7 @@
 		14AC43ED1ECDEBCF00B71D0B /* RCTConvert+GMSMapViewType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RCTConvert+GMSMapViewType.h"; sourceTree = "<group>"; };
 		14AC43EE1ECDEBCF00B71D0B /* RCTConvert+GMSMapViewType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RCTConvert+GMSMapViewType.m"; sourceTree = "<group>"; };
 		14E00DDF1ECB335700153A78 /* ReactNativeNavigation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReactNativeNavigation.xcodeproj; path = "../node_modules/react-native-navigation/ios/ReactNativeNavigation.xcodeproj"; sourceTree = "<group>"; };
+		14E37EB61ECF24A600948CA4 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		2D02E47B1E0B4A5D006451C7 /* petsgo-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "petsgo-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* petsgo-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "petsgo-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3857FCA6804EA3DA7575F4D1 /* Pods-petsgo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-petsgo.release.xcconfig"; path = "Pods/Target Support Files/Pods-petsgo/Pods-petsgo.release.xcconfig"; sourceTree = "<group>"; };
@@ -353,6 +355,7 @@
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
 				00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */,
 				00C302E81ABCBA2D00DB3ED1 /* libRCTImage.a in Frameworks */,
+				14E37EB71ECF24A600948CA4 /* MapKit.framework in Frameworks */,
 				133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */,
 				00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */,
 				139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */,
@@ -639,6 +642,7 @@
 		F8648BA03030589F66CAC58C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				14E37EB61ECF24A600948CA4 /* MapKit.framework */,
 				DD3523C818CDFC8ECA433686 /* libPods-petsgo.a */,
 			);
 			name = Frameworks;
@@ -734,6 +738,16 @@
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
+					};
+					13B07F861A680F5B00A75B9A = {
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
