@@ -18,8 +18,8 @@ export default AdoptionListItem = ({ onPress, image, address, sex }) => (
         <Image
           style={styles.sexIcon}
           source={sex == 'M' ?
-            require('../../../img/home.png') :
-            require('../../../img/user.png')
+            require('../../../img/sex_M.png') :
+            require('../../../img/sex_F.png')
           } />
       </View>
     </TouchableWithoutFeedback>
