@@ -10,18 +10,28 @@
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
 		00C302E81ABCBA2D00DB3ED1 /* libRCTImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302C01ABCB91800DB3ED1 /* libRCTImage.a */; };
-		00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302DC1ABCB9D200DB3ED1 /* libRCTNetwork.a */; };
 		00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302E41ABCB9EE00DB3ED1 /* libRCTVibration.a */; };
 		00E356F31AD99517003FC87E /* petsgoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* petsgoTests.m */; };
 		048E2AD9DA34B7CDA18741F7 /* libPods-petsgo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DD3523C818CDFC8ECA433686 /* libPods-petsgo.a */; };
-		133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C398B91ACF4ADC00677621 /* libRCTLinking.a */; };
-		139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139105C11AF99BAD00B5F7CC /* libRCTSettings.a */; };
-		139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139FDEF41B06529B00C62182 /* libRCTWebSocket.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
+		141BBFF51ED45CB700360BDD /* libreact-native-google-maps.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 141BBFF31ED45CB700360BDD /* libreact-native-google-maps.a */; };
+		141BBFF61ED45CB700360BDD /* libreact-native-maps.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 141BBFF41ED45CB700360BDD /* libreact-native-maps.a */; };
+		141BBFFD1ED45CCC00360BDD /* libcxxreact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA91DF850E9000B6D8A /* libcxxreact.a */; };
+		141BBFFE1ED45CCC00360BDD /* libcxxreact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EAB1DF850E9000B6D8A /* libcxxreact.a */; };
+		141BBFFF1ED45CCC00360BDD /* libjschelpers.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EAD1DF850E9000B6D8A /* libjschelpers.a */; };
+		141BC0001ED45CCC00360BDD /* libjschelpers.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EAF1DF850E9000B6D8A /* libjschelpers.a */; };
+		141BC0011ED45CCC00360BDD /* libyoga.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA51DF850E9000B6D8A /* libyoga.a */; };
+		141BC0021ED45CCC00360BDD /* libyoga.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA71DF850E9000B6D8A /* libyoga.a */; };
+		141BC0041ED45CCC00360BDD /* libYoga.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 141BC0031ED45CCC00360BDD /* libYoga.a */; };
+		141BC0051ED45D5D00360BDD /* libRCTLinking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C398B91ACF4ADC00677621 /* libRCTLinking.a */; };
+		141BC0061ED45D5D00360BDD /* libRCTNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302DC1ABCB9D200DB3ED1 /* libRCTNetwork.a */; };
+		141BC0071ED45D5D00360BDD /* libRCTSettings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139105C11AF99BAD00B5F7CC /* libRCTSettings.a */; };
+		141BC0081ED45D5D00360BDD /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
+		141BC0091ED45D5D00360BDD /* libRCTWebSocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139FDEF41B06529B00C62182 /* libRCTWebSocket.a */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		14AC43A31ECDDE0200B71D0B /* libAirMaps.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14AC43881ECDDDF100B71D0B /* libAirMaps.a */; };
 		14AC43EF1ECDEBCF00B71D0B /* AIRGMSMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 14AC43CC1ECDEBCF00B71D0B /* AIRGMSMarker.m */; };
@@ -57,7 +67,6 @@
 		2D02E4C91E0B4AEC006451C7 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
 		2DCD954D1E0B4F2C00145EB5 /* petsgoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* petsgoTests.m */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
-		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -286,6 +295,9 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = petsgo/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = petsgo/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = petsgo/main.m; sourceTree = "<group>"; };
+		141BBFF31ED45CB700360BDD /* libreact-native-google-maps.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libreact-native-google-maps.a"; path = "../../../Library/Developer/Xcode/DerivedData/petsgo-gvgdjpfmyklagdfrhsfxlzvvzxyw/Build/Products/Debug-iphonesimulator/react-native-google-maps/libreact-native-google-maps.a"; sourceTree = "<group>"; };
+		141BBFF41ED45CB700360BDD /* libreact-native-maps.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libreact-native-maps.a"; path = "../../../Library/Developer/Xcode/DerivedData/petsgo-gvgdjpfmyklagdfrhsfxlzvvzxyw/Build/Products/Debug-iphonesimulator/react-native-maps/libreact-native-maps.a"; sourceTree = "<group>"; };
+		141BC0031ED45CCC00360BDD /* libYoga.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libYoga.a; path = "../../../Library/Developer/Xcode/DerivedData/petsgo-gvgdjpfmyklagdfrhsfxlzvvzxyw/Build/Products/Debug-iphonesimulator/Yoga/libYoga.a"; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		14AC43831ECDDDF100B71D0B /* AirMaps.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AirMaps.xcodeproj; path = "../node_modules/react-native-maps/lib/ios/AirMaps.xcodeproj"; sourceTree = "<group>"; };
 		14AC43CB1ECDEBCF00B71D0B /* AIRGMSMarker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIRGMSMarker.h; sourceTree = "<group>"; };
@@ -348,6 +360,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				141BC0051ED45D5D00360BDD /* libRCTLinking.a in Frameworks */,
+				141BC0061ED45D5D00360BDD /* libRCTNetwork.a in Frameworks */,
+				141BC0071ED45D5D00360BDD /* libRCTSettings.a in Frameworks */,
+				141BC0081ED45D5D00360BDD /* libRCTText.a in Frameworks */,
+				141BC0091ED45D5D00360BDD /* libRCTWebSocket.a in Frameworks */,
+				141BC0041ED45CCC00360BDD /* libYoga.a in Frameworks */,
+				141BBFFD1ED45CCC00360BDD /* libcxxreact.a in Frameworks */,
+				141BBFFE1ED45CCC00360BDD /* libcxxreact.a in Frameworks */,
+				141BBFFF1ED45CCC00360BDD /* libjschelpers.a in Frameworks */,
+				141BC0001ED45CCC00360BDD /* libjschelpers.a in Frameworks */,
+				141BC0011ED45CCC00360BDD /* libyoga.a in Frameworks */,
+				141BC0021ED45CCC00360BDD /* libyoga.a in Frameworks */,
+				141BBFF51ED45CB700360BDD /* libreact-native-google-maps.a in Frameworks */,
+				141BBFF61ED45CB700360BDD /* libreact-native-maps.a in Frameworks */,
 				14AC43A31ECDDE0200B71D0B /* libAirMaps.a in Frameworks */,
 				14E00DFE1ECB337700153A78 /* libReactNativeNavigation.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
@@ -356,12 +382,7 @@
 				00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */,
 				00C302E81ABCBA2D00DB3ED1 /* libRCTImage.a in Frameworks */,
 				14E37EB71ECF24A600948CA4 /* MapKit.framework in Frameworks */,
-				133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */,
-				00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */,
-				139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */,
-				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
-				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				048E2AD9DA34B7CDA18741F7 /* libPods-petsgo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -642,6 +663,9 @@
 		F8648BA03030589F66CAC58C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				141BC0031ED45CCC00360BDD /* libYoga.a */,
+				141BBFF31ED45CB700360BDD /* libreact-native-google-maps.a */,
+				141BBFF41ED45CB700360BDD /* libreact-native-maps.a */,
 				14E37EB61ECF24A600948CA4 /* MapKit.framework */,
 				DD3523C818CDFC8ECA433686 /* libPods-petsgo.a */,
 			);
@@ -1262,6 +1286,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
+				GCC_NO_COMMON_BLOCKS = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/../node_modules/react-native-navigation/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-maps/ios/AirMaps/**",
@@ -1285,6 +1310,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
+				GCC_NO_COMMON_BLOCKS = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/../node_modules/react-native-navigation/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-maps/ios/AirMaps/**",
