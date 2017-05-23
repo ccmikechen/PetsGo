@@ -7,6 +7,7 @@ export default class NewPostInput extends React.Component {
   constructor(props) {
     super(props);
   }
+
   render() {
     return(
       <View style={styles.container}>
@@ -17,8 +18,6 @@ export default class NewPostInput extends React.Component {
             style={{fontSize:20,height:20}}
             maxLength={30}
           />
-
-
         </View>
         <TextInput
           multiline = {true}
@@ -26,7 +25,7 @@ export default class NewPostInput extends React.Component {
           placeholderTextColor="rgb(171, 170, 171)"
           style={{marginTop:10,fontSize:14,paddingLeft:20}}
         />
-        <View style={{borderColor:'rgb(218, 213, 213)',borderWidth:1,marginTop:5,backgroundColor:'yellow',height:30}}>
+        <View style={{borderColor:'rgb(218, 213, 213)',borderWidth:1,marginTop:5,backgroundColor:'yellow',height:30,  justifyContent: 'flex-end'}}>
 
         </View>
         <KeyboardSpacer/>
