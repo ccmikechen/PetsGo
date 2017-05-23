@@ -24,5 +24,6 @@ export const fetchAdoptionList = () => (dispatch) => {
         type: UPDATE_ADOPTION_LIST,
         data: results
       })
-    ));
+    ))
+    .catch(error => console.log("adoptAPI_ERROR:"+error));
 };
