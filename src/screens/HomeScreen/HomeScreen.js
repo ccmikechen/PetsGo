@@ -19,11 +19,12 @@ class HomeScreen extends React.Component {
   onNavigatorEvent(event) {
     if (event.type == 'NavBarButtonPress') {
       if (event.id == 'Post') {
-        this.props.navigator.push({
+        this.props.navigator.showModal({
           screen:'petsgo.NewPostScreen',
           title:'撰寫貼文',
           passProps: {},
           animated:true,
+          animationType: 'slide-up'
         });
       }
     }
