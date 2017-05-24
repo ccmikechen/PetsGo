@@ -1,6 +1,8 @@
-import { AsyncStorage } from 'react-native';
+import { AsyncStorage, Platform } from 'react-native';
 
-const API = "http://test.bearlab.io:4000/api";
+const API = Platform.OS == 'ios' ?
+  "https://test.bearlab.io/api" :
+  "http://test.bearlab.io/api";
 
 const getToken = async () => {
   const token = await AsyncStorage.getItem('@session:token');
@@ -9,7 +11,7 @@ const getToken = async () => {
 
 const headers = () => {
   const jsonToken = getToken();
-  
+
   return {
     Accept: 'application/json',
     'Content-Type': 'application/json',
