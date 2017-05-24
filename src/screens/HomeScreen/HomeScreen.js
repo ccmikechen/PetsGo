@@ -10,21 +10,23 @@ class HomeScreen extends React.Component {
   static navigatorButtons = {
     rightButtons: [
       {
-        icon: require('../../../img/newPost.png'),
-        id: 'Post'
+        id: 'post',
+        icon: require('../../../img/newPost.png')
       }
     ]
   };
 
   onNavigatorEvent(event) {
     if (event.type == 'NavBarButtonPress') {
-      if (event.id == 'Post') {
-        this.props.navigator.push({
-          screen:'petsgo.NewPostScreen',
-          title:'撰寫貼文',
-          passProps: {},
-          animated:true,
-        });
+      switch (event.id) {
+        case 'post':
+          this.props.navigator.push({
+            screen:'petsgo.NewPostScreen',
+            title:'撰寫貼文',
+            passProps: {},
+            animated:true,
+          });
+          break;
       }
     }
   }
