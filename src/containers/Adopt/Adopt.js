@@ -29,6 +29,7 @@ class Adopt extends React.Component {
           itemsPerRow={2}
           renderItem={AdoptionListItem}
           style={{flex: 1}}
+          enableEmptySections={true}
         />
       </View>
     );

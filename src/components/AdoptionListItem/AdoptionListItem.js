@@ -2,8 +2,8 @@ import React from 'react';
 import { View, Image, Text, TouchableWithoutFeedback } from 'react-native';
 import styles from './styles';
 
-export default AdoptionListItem = ({ onPress, image, address, sex }) => (
-  <View style={styles.listItem}>
+export default AdoptionListItem = ({ onPress, image, address, sex, key }) => (
+  <View style={styles.listItem} key={key}>
     <TouchableWithoutFeedback
       onPress={onPress}
     >
