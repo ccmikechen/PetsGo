@@ -9,8 +9,8 @@ const sessionReducer = handleActions({
   UPDATE_PASSWORD: (state, { password }) => (
     state.set('password', password)
   ),
-  SESSION_LOGIN: (state, { loginState }) => (
-    state.set('isLoggedIn', loginState)
+  UPDATE_AUTHENTICATED: (state) => (
+    state.set('isAuthenticated', true)
   ),
 }, SessionState);
 

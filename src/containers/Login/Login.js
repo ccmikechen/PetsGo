@@ -4,7 +4,11 @@ import { View, Text, Button } from 'react-native';
 import styles from './styles';
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 import { Fumi } from 'react-native-textinput-effects';
-
+import {
+  updateUsername,
+  updatePassword,
+  login
+} from '../../actions/sessionActions';
 
 class Login extends React.Component {
   constructor(props) {
@@ -14,7 +18,6 @@ class Login extends React.Component {
   componentWillMount() {
 
   }
-
 
   render() {
     return (
@@ -26,6 +29,7 @@ class Login extends React.Component {
           iconClass={FontAwesomeIcon}
           iconName={'user'}
           iconColor={'#f95a25'}
+          onChangeText={(text) => this.props.updateUsername(text)}
         />
         <Fumi
           style={{marginTop:10,height:60,marginBottom:20}}
@@ -33,11 +37,30 @@ class Login extends React.Component {
           iconClass={FontAwesomeIcon}
           iconName={'lock'}
           iconColor={'#f95a25'}
+          onChangeText={(text) => this.props.updatePassword(text)}
         />
-        <Button title="登入"/>
+        <Button
+          title="登入"
+          onPress={() => this.props.login()}
+        />
       </View>
     );
   }
 }
 
-export default Login;
+export default connect((state) => ({
+  username: state.getIn(['session', 'username']),
+  password: state.getIn(['session', 'password']),
+  isAuthenticated: state.getIn(['session', 'isAuthenticated'])
+}), {
+  updateUsername, updatePassword, login
+}, (stateToProps, dispatchToProps, ownProps) => {
+  let { username, password } = stateToProps;
+  let { login } = dispatchToProps;
+  return {
+    ...stateToProps,
+    ...dispatchToProps,
+    ...ownProps,
+    login: login({username, password})
+  };
+})(Login);

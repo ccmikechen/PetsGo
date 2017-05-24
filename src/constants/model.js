@@ -38,5 +38,5 @@ export const AdoptState = Immutable.fromJS({
 export const SessionState = Immutable.fromJS({
   username: "",
   password: "",
-  isLoggedIn: false
+  isAuthenticated: false
 });
