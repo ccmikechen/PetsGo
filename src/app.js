@@ -29,7 +29,7 @@ Navigation.startTabBasedApp({
       icon: require('../img/adopt.png'),
       navigatorStyle: {},
     }, {
-      screen: 'petsgo.InfoScreen',
+      screen: 'petsgo.LoginScreen',
       title: '個人資訊',
       icon: require('../img/user.png'),
       navigatorStyle: {},
