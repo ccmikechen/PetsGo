@@ -13,7 +13,6 @@ class Adopt extends React.Component {
   }
 
   componentWillMount() {
-    console.log('aa');
     this.props.fetchAdoptionList();
   }
 

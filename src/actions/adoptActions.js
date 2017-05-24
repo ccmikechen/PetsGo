@@ -17,7 +17,6 @@ export const fetchAdoptionList = () => (dispatch) => {
       }))
     ))
     .then(results => {
-      console.log(results);
       return results;
     })
     .then(results => (
@@ -26,5 +25,5 @@ export const fetchAdoptionList = () => (dispatch) => {
         data: results
       })
     ))
-    .catch(error => console.log("adoptAPI_ERROR:"+error));
+    .catch(error => console.log("adoptActions_ERROR:"+error));
 };
