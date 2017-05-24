@@ -12,7 +12,8 @@ export const fetchAdoptionList = () => (dispatch) => {
           result.shelter_address.substring(0, 3) ||
           result.shelter_name.substring(0, 3) ||
           result.animal_place.substring(0, 3),
-        sex: result.animal_sex
+        sex: result.animal_sex,
+        key: result.animal_id
       }))
     ))
     .then(results => {
