@@ -10,15 +10,16 @@ class HomeScreen extends React.Component {
   static navigatorButtons = {
     rightButtons: [
       {
-        icon: require('../../../img/newPost.png'),
-        id: 'Post'
+        id: 'post',
+        icon: require('../../../img/newPost.png')
       }
     ]
   };
 
   onNavigatorEvent(event) {
     if (event.type == 'NavBarButtonPress') {
-      if (event.id == 'Post') {
+
+      if (event.id == 'post') {
         this.props.navigator.showModal({
           screen:'petsgo.NewPostScreen',
           title:'撰寫貼文',
@@ -26,6 +27,7 @@ class HomeScreen extends React.Component {
           animated:true,
           animationType: 'slide-up'
         });
+
       }
     }
   }
