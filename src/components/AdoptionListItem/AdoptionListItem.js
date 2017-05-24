@@ -8,10 +8,17 @@ export default AdoptionListItem = ({ onPress, image, address, sex }) => (
       onPress={onPress}
     >
       <View style={styles.container} elevation={5}>
-        <Image
-          style={styles.image}
-          source={{uri: image}}
-        />
+        {image == '' ?
+          <Image
+            style={styles.image}
+            source={require('../../../img/No-image-found.jpg')}
+          /> :
+          <Image
+            style={styles.image}
+            source={{uri: image}}
+          />
+        }
+
         <Text style={styles.address}>
           {address}
         </Text>
