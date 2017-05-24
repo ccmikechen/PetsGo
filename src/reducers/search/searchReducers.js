@@ -1,14 +1,6 @@
 import Immutable from 'immutable';
 import { handleActions } from 'redux-actions';
 import { SearchState } from '../../constants/model';
-import {
-    TOGGLE_SEARCH_OPTION,
-    UPDATE_HOSPITAL_DATA,
-    UPDATE_RESTAURANT_DATA,
-    UPDATE_SALON_DATA,
-    UPDATE_NECESSITIES_DATA,
-    UPDATE_REGION,
-} from '../../constants/actionTypes';
 
 const searchReducer = handleActions({
   TOGGLE_SEARCH_OPTION: (state, { payload }) => {

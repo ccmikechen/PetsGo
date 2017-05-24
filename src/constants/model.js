@@ -34,3 +34,9 @@ export const SearchState = Immutable.fromJS({
 export const AdoptState = Immutable.fromJS({
   animals: []
 });
+
+export const SessionState = Immutable.fromJS({
+  username: "",
+  password: "",
+  isLoggedIn: false
+});

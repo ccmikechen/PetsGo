@@ -1,6 +1,5 @@
 import { AsyncStorage, Platform } from 'react-native';
 
-
 const API = Platform.OS == 'ios' ?
   "https://test.bearlab.io/api" :
   "http://test.bearlab.io/api";
