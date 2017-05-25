@@ -1,18 +1,15 @@
 import { AsyncStorage, Platform } from 'react-native';
 
-
 const API = Platform.OS == 'ios' ?
   "https://test.bearlab.io/api" :
   "http://test.bearlab.io/api";
 
-
 const getToken = async () => {
-  const token = await AsyncStorage.getItem('@session:token');
-  return token && JSON.parse(token) || '';
+  return await AsyncStorage.getItem('@session:token');
 };
 
-const headers = () => {
-  const jsonToken = getToken();
+const getHeaders = async () => {
+  const jsonToken = await getToken();
 
   return {
     Accept: 'application/json',
@@ -39,40 +36,46 @@ const queryString = (params) => {
 };
 
 export default {
-  fetch(url, params = {}) {
-    return fetch(`${API}${url}${queryString(params)}`, {
+  fetch: async (url, params = {}) => {
+    const headers = await getHeaders();
+
+    return await fetch(`${API}${url}${queryString(params)}`, {
       method: 'GET',
-      headers: headers()
+      headers
     })
     .then(parseResponse);
   },
 
-  post(url, data) {
+  post: async (url, data) => {
     const body = JSON.stringify(data);
-    console.log(body);
-    return fetch(`${API}${url}`, {
+    const headers = await getHeaders();
+
+    return await fetch(`${API}${url}`, {
       method: 'POST',
-      headers: headers(),
+      headers,
       body
     })
     .then(parseResponse);
   },
 
-  patch(url, data) {
+  patch: async (url, data) => {
     const body = JSON.stringify(data);
+    const headers = await getHeaders();
 
-    return fetch(`${API}${url}`, {
+    return await fetch(`${API}${url}`, {
       method: 'PATCH',
-      headers: headers(),
+      headers,
       body
     })
     .then(parseResponse);
   },
 
-  delete(url) {
-    return fetch(`${API}${url}`, {
+  delete: async (url) => {
+    const headers = await getHeaders();
+
+    return await fetch(`${API}${url}`, {
       method: 'DELETE',
-      headers: headers()
+      headers: getHeaders()
     })
     .then(parseResponse);
   }
