@@ -1,5 +1,5 @@
 import { AsyncStorage } from 'react-native';
-import server from '../api/server';
+import petsgo from '../api/petsgo';
 import {
   UPDATE_USERNAME,
   UPDATE_PASSWORD,
@@ -28,11 +28,10 @@ export const createAccount = (dispatch) => {
 
 export const login = (data) => (dispatch) => () => {
   console.log(data);
-  server.post('/sessions', {
+  petsgo.createSession({
     ...data
   })
-  .then(response => {
-    let { token } = response.meta;
+  .then(token => {
     AsyncStorage.setItem('@session:token', token);
     startMainApp();
 
