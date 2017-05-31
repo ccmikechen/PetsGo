@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { View, Text, Button, Picker, TextInput } from 'react-native';
 import styles from './styles';
 import { Hoshi } from 'react-native-textinput-effects';
-import { reduxForm, Field } from 'redux-form';
+import { reduxForm, Field } from 'redux-form/immutable';
 import {
   updateUsername,
   updatePassword,
@@ -23,21 +23,31 @@ class SignUp extends React.Component {
 
   onSignUp() {
     this.props.navigator.showModal({
-      screen:'petsgo.SignUpScreen',
-      title:'註冊',
+      screen: 'petsgo.SignUpScreen',
+      title: '註冊',
       passProps: {},
-      animated:true,
+      animated: true,
       animationType: 'slide-up'
     });
   }
 
-  submit = values => {
+  onSubmit(values) {
     //console.log(this.props);
     console.log('submitting form', values)
   }
 
-  renderInput = ({ input: { onChange, ...restInput }}) => {
-    return <TextInput style={styles.input} autoCapitalize={"none"} onChangeText={onChange} {...restInput} />
+  renderInput(label, isPassword) {
+    return ({ input: { onChange, ...restInput }}) => (
+      <Hoshi
+        style={{marginTop:10}}
+        label={label}
+        borderColor={'#b76c94'}
+        autoCapitalize={"none"}
+        secureTextEntry={isPassword}
+        onChangeText={onChange}
+        {...restInput}
+      />
+    );
   }
 
   render() {
@@ -45,33 +55,12 @@ class SignUp extends React.Component {
       <View style={styles.container}>
         <Text style={{color:"#388057",fontSize:20,textAlign:'center'}}>PetsGo</Text>
         <Text style={{color:"rgb(232, 79, 30)",fontSize:14,textAlign:'center',marginTop:20}}></Text>
-        <Field name="username" component={this.renderInput} />
-        <Hoshi
-          style={{marginTop:10}}
-          label={'Username'}
-          borderColor={'#b76c94'}
-          onChangeText={(text) => this.props.updateUsername(text)}
-          autoCapitalize={"none"}
-        />
-        <Hoshi
-          style={{marginTop:10}}
-          label={'Password'}
-          borderColor={'#b76c94'}
-          secureTextEntry={true}
-          onChangeText={(text) => this.props.updatePassword(text)}
-          autoCapitalize={"none"}
-        />
-        <Hoshi
-          style={{marginTop:10,height:14,marginBottom:20}}
-          label={'Email Address'}
-          borderColor={'#b76c94'}
-          secureTextEntry={true}
-          onChangeText={(text) => this.props.updatePassword(text)}
-          autoCapitalize={"none"}
-        />
+        <Field name="username" component={this.renderInput('Username')} />
+        <Field name="password" component={this.renderInput('Password', true)} />
+        <Field name="email" component={this.renderInput('Email')} />
         <Button
           title="註冊"
-          onPress={this.props.handleSubmit(this.submit)}
+          onPress={this.props.handleSubmit(this.onSubmit.bind(this))}
         />
       </View>
     );
