@@ -8,19 +8,15 @@ function parseResponse(response) {
 }
 
 function queryString(params) {
-  const query = Object.keys(params)
-                      .map(k =>
-                         `${encodeURIComponent(k)}=${encodeURIComponent(params[k])}`)
-                      .join('&');
-  return `${query.length ? '?' : ''}${query}`;
+  const query = Object.keys(params).map(k => `${encodeURIComponent(k)}=${encodeURIComponent(params[k])}`).join('&');
+  return `${query.length
+    ? '?'
+    : ''}${query}`;
 }
 
 export default {
   fetch(url, params = {}) {
     console.log(`${url}${queryString(params)}`);
-    return fetch(`${url}${queryString(params)}`, {
-      method: 'GET'
-    })
-    .then(parseResponse);
-  },
+    return fetch(`${url}${queryString(params)}`, {method: 'GET'}).then(parseResponse);
+  }
 };

@@ -6,6 +6,8 @@ import {
   startLoginApp
 } from './apps';
 
+AsyncStorage.clear();
+
 const getToken = async () => {
   return await AsyncStorage.getItem('@session:token');
 };

@@ -9,7 +9,5 @@ const fetchAdoptionList = () => {
 };
 
 export default {
-  getAdoptionList: () => (
-    fetchAdoptionList()
-  )
+  getAdoptionList : () => (fetchAdoptionList())
 };

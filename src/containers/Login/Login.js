@@ -10,7 +10,6 @@ import {
   login
 } from '../../actions/sessionActions';
 
-
 class Login extends React.Component {
   constructor(props) {
     super(props);
@@ -20,35 +19,54 @@ class Login extends React.Component {
 
   }
 
+  onSignUp() {
+    this.props.navigator.showModal({
+      screen:'petsgo.SignUpScreen',
+      title:'註冊',
+      passProps: {},
+      animated:true,
+      animationType: 'slide-up'
+    });
+  }
 
   render() {
     return (
       <View style={styles.container}>
         <Text style={{color:"#388057",fontSize:20,textAlign:'center'}}>PetsGo</Text>
+        <Text style={{color:"rgb(232, 79, 30)",fontSize:14,textAlign:'center',marginTop:20}}>帳號密碼錯誤</Text>
         <Fumi
           style={{marginTop:10,height:60}}
           label={'Username'}
           iconClass={FontAwesomeIcon}
           iconName={'user'}
-          iconColor={'#f95a25'}
+          iconColor={'#367286'}
           onChangeText={(text) => this.props.updateUsername(text)}
+          autoCapitalize={"none"}
         />
         <Fumi
           style={{marginTop:10,height:60,marginBottom:20}}
           label={'Password'}
           iconClass={FontAwesomeIcon}
           iconName={'lock'}
-          iconColor={'#f95a25'}
+          iconColor={'#367286'}
+          secureTextEntry={true}
           onChangeText={(text) => this.props.updatePassword(text)}
+          autoCapitalize={"none"}
         />
         <Button
           title="登入"
           onPress={() => this.props.login()}
         />
+        <Button
+          navigator={this.props.navigator}
+          title="註冊"
+          onPress={() => this.onSignUp()}
+        />
       </View>
     );
   }
 }
+
 export default connect((state) => ({
   username: state.getIn(['session', 'username']),
   password: state.getIn(['session', 'password']),
