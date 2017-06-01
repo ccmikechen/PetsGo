@@ -14,7 +14,7 @@ const startApp = () => {
   .then(() => {
     startMainApp();
   })
-  .catch(() => {
+  .catch((err) => {
     startLoginApp();
   });
 };

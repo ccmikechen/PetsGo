@@ -1,6 +1,7 @@
 import { Navigation } from 'react-native-navigation';
 import { Provider } from 'react-redux';
 import store from '../store';
+import AppDrawer from './AppDrawer';
 import HomeScreen from './HomeScreen';
 import SearchScreen from './SearchScreen';
 import CameraScreen from './CameraScreen';
@@ -11,6 +12,7 @@ import LoginScreen from './LoginScreen';
 import SignUpScreen from './SignUpScreen';
 
 export function registerScreens() {
+  Navigation.registerComponent('petsgo.AppDrawer', () => AppDrawer, store, Provider);
   Navigation.registerComponent('petsgo.LoginScreen', () => LoginScreen, store, Provider);
   Navigation.registerComponent('petsgo.SignUpScreen', () => SignUpScreen, store, Provider);
   Navigation.registerComponent('petsgo.HomeScreen', () => HomeScreen, store, Provider);

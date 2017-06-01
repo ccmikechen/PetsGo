@@ -12,6 +12,18 @@ const sessionReducer = handleActions({
   UPDATE_AUTHENTICATED: (state) => (
     state.set('isAuthenticated', true)
   ),
+  UPDATE_UNAUTHENTICATED: (state) => (
+    state.set('isAuthenticated', false)
+      .setIn(['user', 'username'], '')
+      .setIn(['user', 'sex'], '')
+      .setIn(['user', 'phoneNumber'], )
+      .setIn(['user', 'firstName'], '')
+      .setIn(['user', 'lastName'], '')
+      .setIn(['user', 'image'], '')
+      .setIn(['user', 'id'], null)
+      .setIn(['user', 'email'], '')
+      .setIn(['user', 'birthday'], null)
+  ),
   UPDATE_CURRENT_ACCOUNT: (state, { user }) => (
     state.setIn(['user', 'username'], user.username)
       .setIn(['user', 'sex'], user.sex)

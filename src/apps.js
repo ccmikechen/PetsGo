@@ -36,6 +36,13 @@ export const startMainApp = () => {
         navigatorStyle: {},
       }
     ],
+    drawer: {
+      left: {
+        screen: 'petsgo.AppDrawer',
+        
+        passProps: {}
+      }
+    },
     passProps: {},
     animationType: ''
   });

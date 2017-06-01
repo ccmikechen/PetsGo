@@ -4,27 +4,26 @@ import {
   UPDATE_USERNAME,
   UPDATE_PASSWORD,
   UPDATE_AUTHENTICATED,
+  UPDATE_UNAUTHENTICATED,
   UPDATE_CURRENT_ACCOUNT,
   REFRESH_SESSION,
   LOGIN_FAILED,
   SIGNUP_FAILED,
   VERIFY_FAILED
 } from '../constants/actionTypes';
-import { startMainApp } from '../apps';
+import {
+  startMainApp,
+  startLoginApp
+} from '../apps';
 
-export const createAccount = (dispatch) => {
-  let data = 'testdata';
-  return (dispatch) => server.post('/users', {
-    username: data,
-    email: data,
-    password: data,
-    first_name: data,
-    last_name: data,
-    sex: data
-  })
-  .then(response => {
-    console.log(response);
-    return response;
+export const createAccount = (data) => (dispatch) => {
+  petsgo.createUser(data)
+  .then(token => {
+    startMainApp();
+
+    return dispatch({
+      type: UPDATE_AUTHENTICATED
+    });
   })
   .catch(error => {
     console.log(error);
@@ -47,6 +46,17 @@ export const login = (data) => (dispatch) => () => {
       type: LOGIN_FAILED,
       error
     })
+  });
+};
+
+export const logout = () => (dispatch) => {
+  petsgo.destroySession()
+  .then(response => {
+    dispatch({
+      type: UPDATE_UNAUTHENTICATED
+    });
+    console.log('logout', response);
+    startLoginApp();
   });
 };
 

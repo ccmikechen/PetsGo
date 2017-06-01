@@ -18,9 +18,19 @@ export default {
   ),
   destroySession: () => (
     server.delete('/sessions')
+    .then(response => {
+      if (response.ok) {
+        AsyncStorage.setItem('@session:token', '');
+      }
+      return response;
+    })
   ),
-  refreshSession: () => (
-    server.post('/sessions/refresh')
+  refreshSession: () => {
+    AsyncStorage.getItem('@session:token')
+    .then(token => {
+      console.log('token', token);
+    });
+    return server.post('/sessions/refresh')
     .then(response => {
       if (response.error) {
         throw new Error(response.error)
@@ -28,8 +38,8 @@ export default {
       let token = response.meta.token;
       AsyncStorage.setItem('@session:token', token);
       return token;
-    })
-  ),
+    });
+  },
   createUser: (data) => (
     server.post('/users', {
       ...data
