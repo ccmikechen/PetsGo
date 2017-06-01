@@ -1,24 +1,21 @@
 import {
   AsyncStorage
 } from 'react-native';
+
 import {
   startMainApp,
   startLoginApp
 } from './apps';
 
-AsyncStorage.clear();
-
-const getToken = async () => {
-  return await AsyncStorage.getItem('@session:token');
-};
+import petsgo from './api/petsgo';
 
 const startApp = () => {
-  getToken().then((token) => {
-    if (token) {
-      startMainApp();
-    } else {
-      startLoginApp();
-    }
+  petsgo.refreshSession()
+  .then(() => {
+    startMainApp();
+  })
+  .catch(() => {
+    startLoginApp();
   });
 };
 
