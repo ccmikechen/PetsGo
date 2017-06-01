@@ -10,14 +10,18 @@ import {
   createAccount
 } from '../../actions/sessionActions';
 
+const Item = Picker.Item;
 class SignUp extends React.Component {
   constructor(props) {
     super(props);
+
   }
 
   componentWillMount() {
   }
-
+  state = {
+    sex:0,
+  }
   onSignUp() {
     this.props.navigator.showModal({
       screen: 'petsgo.SignUpScreen',
@@ -30,7 +34,7 @@ class SignUp extends React.Component {
 
   onSubmit(values) {
     //console.log(this.props);
-    console.log('submitting form', values.get('username'));
+    console.log('submitting form', values);
     this.props.createAccount({
       username: values.get('username'),
       password: values.get('password'),
@@ -44,7 +48,7 @@ class SignUp extends React.Component {
   renderInput(label, isPassword) {
     return ({ input: { onChange, ...restInput }}) => (
       <Hoshi
-        style={{marginTop:2}}
+        style={{marginTop:0,flex:1}}
         label={label}
         borderColor={'#b76c94'}
         autoCapitalize={"none"}
@@ -55,17 +59,33 @@ class SignUp extends React.Component {
     );
   }
 
+
+
+  renderPicker() {
+    return ({ input, label, meta: {touched, error}, children, ...custom })  => (
+       <Picker
+         {...input}
+         selectedValue={input.value}
+         onChange={input.onChange}
+         children={children} {...custom} />
+    );
+  }
+
   render() {
     return (
       <View style={styles.container}>
-        <Text style={{color:"#388057",fontSize:20,textAlign:'center'}}>PetsGo</Text>
-        <Text style={{color:"rgb(232, 79, 30)",fontSize:14,textAlign:'center',marginTop:20}}></Text>
+        <Text style={{color:"#388057",fontSize:16,textAlign:'center'}}>PetsGo</Text>
+        {/*<Text style={{color:"rgb(232, 79, 30)",fontSize:14,textAlign:'center',marginTop:20}}></Text>*/}
         <Field name="username" component={this.renderInput('Username')} />
         <Field name="password" component={this.renderInput('Password', true)} />
         <Field name="email" component={this.renderInput('Email')} />
         <Field name="firstname" component={this.renderInput('Firstname')} />
         <Field name="lastname" component={this.renderInput('Lastname')} />
-        <Field name="sex" component={this.renderInput('sex')} />
+        <Field name="sex" mode="dropdown" component={this.renderPicker()} >
+          <Item label="男" value="0" />
+          <Item label="女" value="1" />
+          <Item label="其他" value="2" />
+        </Field>
         <Button
           title="註冊"
           onPress={this.props.handleSubmit(this.onSubmit.bind(this))}

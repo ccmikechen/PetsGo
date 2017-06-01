@@ -6,10 +6,7 @@ export default styles = StyleSheet.create({
     backgroundColor: 'rgb(235, 235, 235)',
     padding: 8,
   },
-  input: {
-    borderColor: 'black',
-    borderWidth: 1,
-    height: 37,
-    width: 250
+  picker: {
+    height: 200,
   }
 });
