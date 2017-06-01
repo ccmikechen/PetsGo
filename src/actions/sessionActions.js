@@ -12,19 +12,15 @@ import {
 } from '../constants/actionTypes';
 import { startMainApp } from '../apps';
 
-export const createAccount = (dispatch) => {
-  let data = 'testdata';
-  return (dispatch) => server.post('/users', {
-    username: data,
-    email: data,
-    password: data,
-    first_name: data,
-    last_name: data,
-    sex: data
-  })
-  .then(response => {
-    console.log(response);
-    return response;
+export const createAccount = (data) => (dispatch) => {
+  petsgo.createUser(data)
+  .then(token => {
+    AsyncStorage.setItem('@session:token', token);
+    startMainApp();
+
+    return dispatch({
+      type: UPDATE_AUTHENTICATED
+    });
   })
   .catch(error => {
     console.log(error);
