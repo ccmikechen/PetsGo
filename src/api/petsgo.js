@@ -26,10 +26,6 @@ export default {
     })
   ),
   refreshSession: () => {
-    AsyncStorage.getItem('@session:token')
-    .then(token => {
-      console.log('token', token);
-    });
     return server.post('/sessions/refresh')
     .then(response => {
       if (response.error) {

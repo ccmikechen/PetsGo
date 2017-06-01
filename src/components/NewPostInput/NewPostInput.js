@@ -6,7 +6,6 @@ import {
   TextInput,
   StyleSheet
 } from 'react-native';
-import { AutoGrowingTextInput } from 'react-native-autogrow-textinput';
 import styles from './styles';
 
 export default NewPostInput = ({ style }) => (
@@ -23,7 +22,8 @@ export default NewPostInput = ({ style }) => (
       />
     </View>
     <View style={styles.content}>
-      <AutoGrowingTextInput
+      <TextInput
+        multiline={true}
         placeholder="內容"
         placeholderTextColor="rgb(171, 170, 171)"
         style={{

@@ -18,6 +18,11 @@ export const startSplashApp = () => {
   });
 };
 
+const navigatorStyle = {
+  navBarBackgroundColor: '#AADDEE',
+  navBarTextColor: '#FFFFFF'
+};
+
 export const startMainApp = () => {
   Navigation.startTabBasedApp({
     tabs: [
@@ -25,33 +30,32 @@ export const startMainApp = () => {
         screen: 'petsgo.HomeScreen',
         title: '首頁',
         icon: require('../img/home.png'),
-        navigatorStyle: {},
+        navigatorStyle,
       }, {
         screen: 'petsgo.SearchScreen',
         title: '探索週邊',
         icon: require('../img/map.png'),
-        navigatorStyle: {},
+        navigatorStyle,
       }, {
         screen: 'petsgo.CameraScreen',
         title: '拍照',
         icon: require('../img/camera.png'),
-        navigatorStyle: {},
+        navigatorStyle,
       }, {
         screen: 'petsgo.AdoptScreen',
         title: '寵物認養',
         icon: require('../img/adopt.png'),
-        navigatorStyle: {},
+        navigatorStyle,
       }, {
         screen: 'petsgo.InfoScreen',
         title: '個人資訊',
         icon: require('../img/user.png'),
-        navigatorStyle: {},
+        navigatorStyle,
       }
     ],
     drawer: {
       left: {
         screen: 'petsgo.AppDrawer',
-
         passProps: {}
       }
     },
@@ -64,7 +68,10 @@ export const startLoginApp = () => {
   Navigation.startSingleScreenApp({
     screen: {
       screen: 'petsgo.LoginScreen',
-      title: '登入'
+      navigatorStyle: {
+        navBarHidden: true,
+        drawUnderNavBar: true
+      }
     }
   });
 };
