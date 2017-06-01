@@ -6,6 +6,18 @@ import { registerScreens } from './screens';
 
 registerScreens();
 
+export const startSplashApp = () => {
+  Navigation.startSingleScreenApp({
+    screen: {
+      screen: 'petsgo.SplashScreen',
+      navigatorStyle: {
+        navBarHidden: true,
+        drawUnderNavBar: true
+      }
+    }
+  });
+};
+
 export const startMainApp = () => {
   Navigation.startTabBasedApp({
     tabs: [
@@ -39,7 +51,7 @@ export const startMainApp = () => {
     drawer: {
       left: {
         screen: 'petsgo.AppDrawer',
-        
+
         passProps: {}
       }
     },

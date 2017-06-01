@@ -1,6 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { View, Text, TextInput } from 'react-native';
+import {
+  View,
+  ScrollView,
+  Text,
+  TextInput,
+  ActivityIndicator
+} from 'react-native';
 import Button from 'apsl-react-native-button';
 import styles from './styles';
 import { Hoshi } from 'react-native-textinput-effects';
@@ -16,15 +22,17 @@ class SignUp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-            textInputValue: ''
-        }
+      textInputValue: ''
+    }
   }
 
   componentWillMount() {
   }
+
   state = {
-    sex:0,
+    sex: 0,
   }
+
   onSignUp() {
     this.props.navigator.showModal({
       screen: 'petsgo.SignUpScreen',
@@ -62,8 +70,6 @@ class SignUp extends React.Component {
     );
   }
 
-
-
   renderPicker() {
     let index = 0;
         const data = [
@@ -83,30 +89,43 @@ class SignUp extends React.Component {
           value={this.state.textInputValue}
           {...restInput}
         />
-
       </ModalPicker>
     );
   }
 
-  render() {
+  renderCover() {
+    return (
+      <View style={styles.cover}>
+        <ActivityIndicator
+          animating={true}
+          size='large'
+          color='grey'
+        />
+      </View>
+    );
+  }
 
+  render() {
     return (
       <View style={styles.container}>
-        <Text style={{color:"#388057",fontSize:16,textAlign:'center'}}>PetsGo</Text>
-        {/*<Text style={{color:"rgb(232, 79, 30)",fontSize:14,textAlign:'center',marginTop:20}}></Text>*/}
-        <Field name="username" component={this.renderInput('Username')} />
-        <Field name="password" component={this.renderInput('Password', true)} />
-        <Field name="email" component={this.renderInput('Email')} />
-        <Field name="firstname" component={this.renderInput('Firstname')} />
-        <Field name="lastname" component={this.renderInput('Lastname')} />
-        <Field name="sex" component={this.renderInput('Sex')} />
-        <Button
-          style={styles.signup}
-          textStyle={{color:'white'}}
-          onPress={this.props.handleSubmit(this.onSubmit.bind(this))}
-        >
-          註冊
-        </Button>
+        <ScrollView style={styles.container}>
+          <Text style={{color:"#388057",fontSize:16,textAlign:'center'}}>PetsGo</Text>
+          {/*<Text style={{color:"rgb(232, 79, 30)",fontSize:14,textAlign:'center',marginTop:20}}></Text>*/}
+          <Field name="username" component={this.renderInput('Username')} />
+          <Field name="password" component={this.renderInput('Password', true)} />
+          <Field name="email" component={this.renderInput('Email')} />
+          <Field name="firstname" component={this.renderInput('Firstname')} />
+          <Field name="lastname" component={this.renderInput('Lastname')} />
+          <Field name="sex" component={this.renderInput('Sex')} />
+          <Button
+            style={styles.signup}
+            textStyle={{color:'white'}}
+            onPress={this.props.handleSubmit(this.onSubmit.bind(this))}
+          >
+            註冊
+          </Button>
+        </ScrollView>
+        {this.props.isSigningUp? this.renderCover() : null}
       </View>
     );
   }
@@ -116,4 +135,6 @@ const SignUpForm = reduxForm({
   form: 'SignUp'
 })(SignUp);
 
-export default connect(null, { createAccount })(SignUpForm);
+export default connect((state) => ({
+  isSigningUp: state.getIn(['session', 'signUp', 'isSigningUp'])
+}), { createAccount })(SignUpForm);

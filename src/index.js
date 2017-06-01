@@ -4,12 +4,14 @@ import {
 
 import {
   startMainApp,
-  startLoginApp
+  startLoginApp,
+  startSplashApp
 } from './apps';
 
 import petsgo from './api/petsgo';
 
 const startApp = () => {
+  startSplashApp();
   petsgo.refreshSession()
   .then(() => {
     startMainApp();

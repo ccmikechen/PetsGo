@@ -11,7 +11,9 @@ import {
   SIGNUP_FAILED,
   VERIFY_FAILED,
   UPDATE_IS_LOGGING_IN,
-  UPDATE_IS_NOT_LOGGING_IN
+  UPDATE_IS_NOT_LOGGING_IN,
+  UPDATE_IS_SIGNING_UP,
+  UPDATE_IS_NOT_SIGNING_UP
 } from '../constants/actionTypes';
 import {
   startMainApp,
@@ -19,14 +21,18 @@ import {
 } from '../apps';
 
 export const createAccount = (data) => (dispatch) => {
+  dispatch({ type: UPDATE_IS_SIGNING_UP });
+
   petsgo.createUser(data)
   .then(token => {
     startMainApp();
 
     dispatch({ type: UPDATE_AUTHENTICATED });
+    dispatch({ type: UPDATE_IS_NOT_SIGNING_UP });
   })
   .catch(error => {
-    console.log(error);
+    dispatch({ type: SIGNUP_FAILED, error });
+    dispatch({ type: UPDATE_IS_NOT_SIGNING_UP });
   });
 };
 

@@ -12,6 +12,7 @@
     "immutable": "^3.8.1",
     "react": "16.0.0-alpha.6",
     "react-native": "0.44.2",
+    "react-native-autogrow-textinput": "^3.0.2",
     "react-native-drawer": "^2.3.0",
     "react-native-grid-view": "^0.4.1",
     "react-native-image-slider": "^1.1.5",
