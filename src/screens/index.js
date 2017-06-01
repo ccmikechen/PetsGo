@@ -8,11 +8,17 @@ import AdoptScreen from './AdoptScreen';
 import InfoScreen from './InfoScreen';
 import NewPostScreen from './NewPostScreen';
 import LoginScreen from './LoginScreen';
+<<<<<<< HEAD
 import SignUpScreen from './SignUpScreen';
 
 export function registerScreens() {
   Navigation.registerComponent('petsgo.LoginScreen', () => LoginScreen, store, Provider);
   Navigation.registerComponent('petsgo.SignUpScreen', () => SignUpScreen, store, Provider);
+=======
+
+export function registerScreens() {
+  Navigation.registerComponent('petsgo.LoginScreen', () => LoginScreen, store, Provider);
+>>>>>>> add login screen
   Navigation.registerComponent('petsgo.HomeScreen', () => HomeScreen, store, Provider);
   Navigation.registerComponent('petsgo.SearchScreen', () => SearchScreen, store, Provider);
   Navigation.registerComponent('petsgo.CameraScreen', () => CameraScreen, store, Provider);
