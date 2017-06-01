@@ -1,8 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { View, Text, Button, Picker, TextInput } from 'react-native';
+import { View, Text, TextInput } from 'react-native';
+import Button from 'apsl-react-native-button';
 import styles from './styles';
 import { Hoshi } from 'react-native-textinput-effects';
+import ModalPicker from 'react-native-modal-picker';
 import { reduxForm, Field } from 'redux-form/immutable';
 import {
   updateUsername,
@@ -13,11 +15,16 @@ import {
 class SignUp extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+            textInputValue: ''
+        }
   }
 
   componentWillMount() {
   }
-
+  state = {
+    sex:0,
+  }
   onSignUp() {
     this.props.navigator.showModal({
       screen: 'petsgo.SignUpScreen',
@@ -30,7 +37,7 @@ class SignUp extends React.Component {
 
   onSubmit(values) {
     //console.log(this.props);
-    console.log('submitting form', values.get('username'));
+    console.log('submitting form', values);
     this.props.createAccount({
       username: values.get('username'),
       password: values.get('password'),
@@ -44,7 +51,7 @@ class SignUp extends React.Component {
   renderInput(label, isPassword) {
     return ({ input: { onChange, ...restInput }}) => (
       <Hoshi
-        style={{marginTop:2}}
+        style={{marginTop:0,flex:1}}
         label={label}
         borderColor={'#b76c94'}
         autoCapitalize={"none"}
@@ -55,21 +62,51 @@ class SignUp extends React.Component {
     );
   }
 
+
+
+  renderPicker() {
+    let index = 0;
+        const data = [
+            { key: index++, section: true, label: '男' },
+            { key: index++, label: '女' },
+            { key: index++, label: '其他' }
+        ];
+    return ({ input: { onChange, ...restInput }})  => (
+      <ModalPicker
+        data={data}
+        initValue="Sex"
+        onChange={(option)=>{ this.setState({textInputValue:option.label})}}>
+        <TextInput
+          style={{borderWidth:1, borderColor:'#ccc', padding:10, height:30}}
+          editable={false}
+          placeholder="Sex"
+          value={this.state.textInputValue}
+          {...restInput}
+        />
+
+      </ModalPicker>
+    );
+  }
+
   render() {
+
     return (
       <View style={styles.container}>
-        <Text style={{color:"#388057",fontSize:20,textAlign:'center'}}>PetsGo</Text>
-        <Text style={{color:"rgb(232, 79, 30)",fontSize:14,textAlign:'center',marginTop:20}}></Text>
+        <Text style={{color:"#388057",fontSize:16,textAlign:'center'}}>PetsGo</Text>
+        {/*<Text style={{color:"rgb(232, 79, 30)",fontSize:14,textAlign:'center',marginTop:20}}></Text>*/}
         <Field name="username" component={this.renderInput('Username')} />
         <Field name="password" component={this.renderInput('Password', true)} />
         <Field name="email" component={this.renderInput('Email')} />
         <Field name="firstname" component={this.renderInput('Firstname')} />
         <Field name="lastname" component={this.renderInput('Lastname')} />
-        <Field name="sex" component={this.renderInput('sex')} />
+        <Field name="sex" component={this.renderInput('Sex')} />
         <Button
-          title="註冊"
+          style={styles.signup}
+          textStyle={{color:'white'}}
           onPress={this.props.handleSubmit(this.onSubmit.bind(this))}
-        />
+        >
+          註冊
+        </Button>
       </View>
     );
   }
