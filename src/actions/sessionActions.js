@@ -15,7 +15,6 @@ import { startMainApp } from '../apps';
 export const createAccount = (data) => (dispatch) => {
   petsgo.createUser(data)
   .then(token => {
-    AsyncStorage.setItem('@session:token', token);
     startMainApp();
 
     return dispatch({
@@ -23,7 +22,10 @@ export const createAccount = (data) => (dispatch) => {
     });
   })
   .catch(error => {
-    console.log(error);
+    dispatch({
+      type: SIGNUP_FAILED,
+      error
+    })
   });
 };
 
