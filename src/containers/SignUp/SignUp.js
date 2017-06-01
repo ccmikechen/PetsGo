@@ -1,8 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { View, Text, Button, Picker, TextInput } from 'react-native';
+import { View, Text, TextInput } from 'react-native';
+import Button from 'apsl-react-native-button';
 import styles from './styles';
 import { Hoshi } from 'react-native-textinput-effects';
+import ModalPicker from 'react-native-modal-picker';
 import { reduxForm, Field } from 'redux-form/immutable';
 import {
   updateUsername,
@@ -10,11 +12,12 @@ import {
   createAccount
 } from '../../actions/sessionActions';
 
-const Item = Picker.Item;
 class SignUp extends React.Component {
   constructor(props) {
     super(props);
-
+    this.state = {
+            textInputValue: ''
+        }
   }
 
   componentWillMount() {
@@ -62,16 +65,31 @@ class SignUp extends React.Component {
 
 
   renderPicker() {
-    return ({ input, label, meta: {touched, error}, children, ...custom })  => (
-       <Picker
-         {...input}
-         selectedValue={input.value}
-         onChange={input.onChange}
-         children={children} {...custom} />
+    let index = 0;
+        const data = [
+            { key: index++, section: true, label: '男' },
+            { key: index++, label: '女' },
+            { key: index++, label: '其他' }
+        ];
+    return ({ input: { onChange, ...restInput }})  => (
+      <ModalPicker
+        data={data}
+        initValue="Sex"
+        onChange={(option)=>{ this.setState({textInputValue:option.label})}}>
+        <TextInput
+          style={{borderWidth:1, borderColor:'#ccc', padding:10, height:30}}
+          editable={false}
+          placeholder="Sex"
+          value={this.state.textInputValue}
+          {...restInput}
+        />
+
+      </ModalPicker>
     );
   }
 
   render() {
+
     return (
       <View style={styles.container}>
         <Text style={{color:"#388057",fontSize:16,textAlign:'center'}}>PetsGo</Text>
@@ -81,15 +99,14 @@ class SignUp extends React.Component {
         <Field name="email" component={this.renderInput('Email')} />
         <Field name="firstname" component={this.renderInput('Firstname')} />
         <Field name="lastname" component={this.renderInput('Lastname')} />
-        <Field name="sex" mode="dropdown" component={this.renderPicker()} >
-          <Item label="男" value="0" />
-          <Item label="女" value="1" />
-          <Item label="其他" value="2" />
-        </Field>
+        <Field name="sex" component={this.renderInput('Sex')} />
         <Button
-          title="註冊"
+          style={styles.signup}
+          textStyle={{color:'white'}}
           onPress={this.props.handleSubmit(this.onSubmit.bind(this))}
-        />
+        >
+          註冊
+        </Button>
       </View>
     );
   }

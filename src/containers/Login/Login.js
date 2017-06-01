@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { View, Text, Button } from 'react-native';
+import { View, Text } from 'react-native';
+import Button from 'apsl-react-native-button';
 import styles from './styles';
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 import { Fumi } from 'react-native-textinput-effects';
@@ -33,9 +34,9 @@ class Login extends React.Component {
     return (
       <View style={styles.container}>
         <Text style={{color:"#388057",fontSize:20,textAlign:'center'}}>PetsGo</Text>
-        <Text style={{color:"rgb(232, 79, 30)",fontSize:14,textAlign:'center',marginTop:20}}>帳號密碼錯誤</Text>
+        <Text style={{color:"rgb(232, 79, 30)",fontSize:14,textAlign:'center',marginTop:20}}>{this.props.error}</Text>
         <Fumi
-          style={{marginTop:10,height:60}}
+          style={styles.fumi}
           label={'Username'}
           iconClass={FontAwesomeIcon}
           iconName={'user'}
@@ -44,7 +45,7 @@ class Login extends React.Component {
           autoCapitalize={"none"}
         />
         <Fumi
-          style={{marginTop:10,height:60,marginBottom:20}}
+          style={styles.fumi}
           label={'Password'}
           iconClass={FontAwesomeIcon}
           iconName={'lock'}
@@ -54,14 +55,20 @@ class Login extends React.Component {
           autoCapitalize={"none"}
         />
         <Button
-          title="登入"
+          style={styles.login}
+          textStyle={{color:'white'}}
           onPress={() => this.props.login()}
-        />
+        >
+          登入
+        </Button>
         <Button
+          style={styles.signup}
+          textStyle={{color:'white'}}
           navigator={this.props.navigator}
-          title="註冊"
           onPress={() => this.onSignUp()}
-        />
+        >
+          註冊
+        </Button>
       </View>
     );
   }
