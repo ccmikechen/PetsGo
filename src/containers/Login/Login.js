@@ -30,6 +30,7 @@ class Login extends React.Component {
     });
   }
 
+
   render() {
     return (
       <View style={styles.container}>
@@ -69,6 +70,7 @@ class Login extends React.Component {
         >
           註冊
         </Button>
+
       </View>
     );
   }

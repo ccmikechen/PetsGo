@@ -3386,9 +3386,15 @@ react-native-vector-icons@^4.1.1:
     prop-types "^15.5.8"
     yargs "^6.3.0"
 
+<<<<<<< HEAD
 react-native@0.44.2:
   version "0.44.2"
   resolved "https://registry.yarnpkg.com/react-native/-/react-native-0.44.2.tgz#c8dfb747b88e6276a991980c57c50b860a98cf0e"
+=======
+react-native@0.44.0:
+  version "0.44.0"
+  resolved "https://registry.yarnpkg.com/react-native/-/react-native-0.44.0.tgz#06427a30053f2d555c60fe0b9afcc6c778db09de"
+>>>>>>> add login screen
   dependencies:
     absolute-path "^0.0.0"
     art "^0.10.0"

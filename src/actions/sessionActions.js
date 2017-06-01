@@ -3,19 +3,28 @@ import petsgo from '../api/petsgo';
 import {
   UPDATE_USERNAME,
   UPDATE_PASSWORD,
-  UPDATE_AUTHENTICATED
+  UPDATE_AUTHENTICATED,
+  UPDATE_CURRENT_ACCOUNT,
+  REFRESH_SESSION,
+  LOGIN_FAILED,
+  SIGNUP_FAILED,
+  VERIFY_FAILED
 } from '../constants/actionTypes';
 import { startMainApp } from '../apps';
 
-export const createAccount = (data) => (dispatch) => {
-  petsgo.createUser(data)
-  .then(token => {
-    AsyncStorage.setItem('@session:token', token);
-    startMainApp();
-
-    return dispatch({
-      type: UPDATE_AUTHENTICATED
-    });
+export const createAccount = (dispatch) => {
+  let data = 'testdata';
+  return (dispatch) => server.post('/users', {
+    username: data,
+    email: data,
+    password: data,
+    first_name: data,
+    last_name: data,
+    sex: data
+  })
+  .then(response => {
+    console.log(response);
+    return response;
   })
   .catch(error => {
     console.log(error);
@@ -23,12 +32,10 @@ export const createAccount = (data) => (dispatch) => {
 };
 
 export const login = (data) => (dispatch) => () => {
-  console.log(data);
   petsgo.createSession({
     ...data
   })
   .then(token => {
-    AsyncStorage.setItem('@session:token', token);
     startMainApp();
 
     return dispatch({
@@ -36,7 +43,39 @@ export const login = (data) => (dispatch) => () => {
     });
   })
   .catch(error => {
-    console.log(error);
+    dispatch({
+      type: LOGIN_FAILED,
+      error
+    })
+  });
+};
+
+export const verifyAndRefreshSession = () => (dispatch) => {
+  petsgo.refreshSession()
+  .then(token => {
+
+  })
+  .catch(error => {
+    dispatch({
+      type: VERIFY_FAILED,
+      error
+    })
+  });
+};
+
+export const getCurrentAccount = () => (dispatch) => {
+  petsgo.getCurrentUser()
+  .then(user => {
+    dispatch({
+      type: UPDATE_CURRENT_ACCOUNT,
+      user
+    });
+  })
+  .catch(error => {
+    dispatch({
+      type: VERIFY_FAILED,
+      error
+    })
   });
 };
 
