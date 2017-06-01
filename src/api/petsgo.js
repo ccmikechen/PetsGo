@@ -14,7 +14,7 @@ export default {
       let token = response.meta.token;
       AsyncStorage.setItem('@session:token', token);
       return token;
-    });
+    })
   ),
   destroySession: () => (
     server.delete('/sessions')
@@ -44,7 +44,7 @@ export default {
     })
   ),
   getCurrentUser: () => (
-    server.get('/sessions/user')
+    server.fetch('/sessions/user')
     .then(response => {
       if (response.error) {
         throw new Error(response.error);
@@ -53,7 +53,7 @@ export default {
     })
   ),
   getAllPosts: () => (
-    server.get('/posts')
+    server.fetch('/posts')
     .then(response => response.data)
   ),
   createPost: ({ title, content, type }) => (
