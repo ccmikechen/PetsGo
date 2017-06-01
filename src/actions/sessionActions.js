@@ -3,7 +3,12 @@ import petsgo from '../api/petsgo';
 import {
   UPDATE_USERNAME,
   UPDATE_PASSWORD,
-  UPDATE_AUTHENTICATED
+  UPDATE_AUTHENTICATED,
+  UPDATE_CURRENT_ACCOUNT,
+  REFRESH_SESSION,
+  LOGIN_FAILED,
+  SIGNUP_FAILED,
+  VERIFY_FAILED
 } from '../constants/actionTypes';
 import { startMainApp } from '../apps';
 
@@ -27,12 +32,10 @@ export const createAccount = (dispatch) => {
 };
 
 export const login = (data) => (dispatch) => () => {
-  console.log(data);
   petsgo.createSession({
     ...data
   })
   .then(token => {
-    AsyncStorage.setItem('@session:token', token);
     startMainApp();
 
     return dispatch({
@@ -40,7 +43,39 @@ export const login = (data) => (dispatch) => () => {
     });
   })
   .catch(error => {
-    console.log(error);
+    dispatch({
+      type: LOGIN_FAILED,
+      error
+    })
+  });
+};
+
+export const verifyAndRefreshSession = () => (dispatch) => {
+  petsgo.refreshSession()
+  .then(token => {
+
+  })
+  .catch(error => {
+    dispatch({
+      type: VERIFY_FAILED,
+      error
+    })
+  });
+};
+
+export const getCurrentAccount = () => (dispatch) => {
+  petsgo.getCurrentUser()
+  .then(user => {
+    dispatch({
+      type: UPDATE_CURRENT_ACCOUNT,
+      user
+    });
+  })
+  .catch(error => {
+    dispatch({
+      type: VERIFY_FAILED,
+      error
+    })
   });
 };
 
