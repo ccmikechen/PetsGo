@@ -45,7 +45,8 @@ export const SessionState = Immutable.fromJS({
   },
   login: {
     falied: false,
-    error: null
+    error: null,
+    isLoggingIn: false
   },
   user: {
     username: '',

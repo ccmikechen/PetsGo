@@ -9,7 +9,9 @@ import {
   REFRESH_SESSION,
   LOGIN_FAILED,
   SIGNUP_FAILED,
-  VERIFY_FAILED
+  VERIFY_FAILED,
+  UPDATE_IS_LOGGING_IN,
+  UPDATE_IS_NOT_LOGGING_IN
 } from '../constants/actionTypes';
 import {
   startMainApp,
@@ -21,9 +23,7 @@ export const createAccount = (data) => (dispatch) => {
   .then(token => {
     startMainApp();
 
-    return dispatch({
-      type: UPDATE_AUTHENTICATED
-    });
+    dispatch({ type: UPDATE_AUTHENTICATED });
   })
   .catch(error => {
     console.log(error);
@@ -31,30 +31,27 @@ export const createAccount = (data) => (dispatch) => {
 };
 
 export const login = (data) => (dispatch) => () => {
+  dispatch({ type: UPDATE_IS_LOGGING_IN });
+
   petsgo.createSession({
     ...data
   })
   .then(token => {
     startMainApp();
 
-    return dispatch({
-      type: UPDATE_AUTHENTICATED
-    });
+    dispatch({ type: UPDATE_AUTHENTICATED });
+    dispatch({ type: UPDATE_IS_NOT_LOGGING_IN });
   })
   .catch(error => {
-    dispatch({
-      type: LOGIN_FAILED,
-      error
-    })
+    dispatch({ type: LOGIN_FAILED, error });
+    dispatch({ type: UPDATE_IS_NOT_LOGGING_IN });
   });
 };
 
 export const logout = () => (dispatch) => {
   petsgo.destroySession()
   .then(response => {
-    dispatch({
-      type: UPDATE_UNAUTHENTICATED
-    });
+    dispatch({ type: UPDATE_UNAUTHENTICATED });
     console.log('logout', response);
     startLoginApp();
   });
@@ -66,39 +63,24 @@ export const verifyAndRefreshSession = () => (dispatch) => {
 
   })
   .catch(error => {
-    dispatch({
-      type: VERIFY_FAILED,
-      error
-    })
+    dispatch({ type: VERIFY_FAILED, error })
   });
 };
 
 export const getCurrentAccount = () => (dispatch) => {
   petsgo.getCurrentUser()
   .then(user => {
-    dispatch({
-      type: UPDATE_CURRENT_ACCOUNT,
-      user
-    });
+    dispatch({ type: UPDATE_CURRENT_ACCOUNT, user });
   })
   .catch(error => {
-    dispatch({
-      type: VERIFY_FAILED,
-      error
-    })
+    dispatch({ type: VERIFY_FAILED, error })
   });
 };
 
 export const updateUsername = (username) => (dispatch) => {
-  return dispatch({
-    type: UPDATE_USERNAME,
-    username
-  });
+  return dispatch({ type: UPDATE_USERNAME, username });
 };
 
 export const updatePassword = (password) => (dispatch) => {
-  return dispatch({
-    type: UPDATE_PASSWORD,
-    password
-  });
+  return dispatch({ type: UPDATE_PASSWORD, password });
 };

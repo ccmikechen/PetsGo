@@ -34,6 +34,12 @@ const sessionReducer = handleActions({
       .setIn(['user', 'id'], user.id)
       .setIn(['user', 'email'], user.email)
       .setIn(['user', 'birthday'], user.birthday)
+  ),
+  UPDATE_IS_LOGGING_IN: (state) => (
+    state.setIn(['login', 'isLoggingIn'], true)
+  ),
+  UPDATE_IS_NOT_LOGGING_IN: (state) => (
+    state.setIn(['login', 'isLoggingIn'], false)
   )
 }, SessionState);
 

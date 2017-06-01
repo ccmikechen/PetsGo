@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { View, Text } from 'react-native';
+import { View, Text, ActivityIndicator } from 'react-native';
 import Button from 'apsl-react-native-button';
 import styles from './styles';
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
@@ -16,10 +16,6 @@ class Login extends React.Component {
     super(props);
   }
 
-  componentWillMount() {
-
-  }
-
   onSignUp() {
     this.props.navigator.showModal({
       screen:'petsgo.SignUpScreen',
@@ -30,6 +26,17 @@ class Login extends React.Component {
     });
   }
 
+  renderCover() {
+    return (
+      <View style={styles.cover}>
+        <ActivityIndicator
+          animating={true}
+          size='large'
+          color='grey'
+        />
+      </View>
+    );
+  }
 
   render() {
     return (
@@ -70,7 +77,7 @@ class Login extends React.Component {
         >
           註冊
         </Button>
-
+        {this.props.isLoggingIn? this.renderCover() : null}
       </View>
     );
   }
@@ -79,7 +86,8 @@ class Login extends React.Component {
 export default connect((state) => ({
   username: state.getIn(['session', 'username']),
   password: state.getIn(['session', 'password']),
-  isAuthenticated: state.getIn(['session', 'isAuthenticated'])
+  isAuthenticated: state.getIn(['session', 'isAuthenticated']),
+  isLoggingIn: state.getIn(['session', 'login', 'isLoggingIn'])
 }), {
   updateUsername, updatePassword, login
 }, (stateToProps, dispatchToProps, ownProps) => {

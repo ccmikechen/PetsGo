@@ -8,7 +8,7 @@ import {
 } from './apps';
 
 import petsgo from './api/petsgo';
-AsyncStorage.clear();
+
 const startApp = () => {
   petsgo.refreshSession()
   .then(() => {
