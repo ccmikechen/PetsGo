@@ -67,10 +67,6 @@ class NewPost extends React.Component {
           <Field name="title" component={this.renderTitle()} />
           <Field name="content" component={this.renderContent()} />
         </ScrollView>
-        <Button
-          title='submit'
-          onPress={this.props.handleSubmit(this.onSubmit)}
-        />
         <NewPostFooter style={{justifyContent: 'flex-end'}}/>
         {Platform.OS == 'ios' ? <KeyboardSpacer /> : null}
       </View>

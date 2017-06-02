@@ -68,6 +68,15 @@ export default {
       return response.data;
     })
   ),
+  getPost: (id) => (
+    server.fetch(`/posts/${id}`)
+    .then(response => {
+      if (response.error) {
+        throw new Error(response.error);
+      }
+      return response.data;
+    })
+  ),
   createPost: ({ title, content, type }) => (
     server.post('/posts', {
       title,

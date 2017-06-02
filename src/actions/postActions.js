@@ -1,6 +1,7 @@
 import petsgo from '../api/petsgo';
 import {
-  UPDATE_POSTS
+  UPDATE_POSTS,
+  UPDATE_POST
 } from '../constants/actionTypes';
 
 export const createPost = (data) => (dispatch) => {
@@ -19,3 +20,13 @@ export const getPosts = () => (dispatch) => {
 
   });
 };
+
+export const getPost = (id) => (dispatch) => {
+  petsgo.getPost(id)
+  .then(post => {
+    dispatch({ type: UPDATE_POST, post });
+  })
+  .catch(error => {
+
+  })
+}
