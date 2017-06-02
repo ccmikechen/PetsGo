@@ -11,6 +11,7 @@ import InfoScreen from './InfoScreen';
 import NewPostScreen from './NewPostScreen';
 import LoginScreen from './LoginScreen';
 import SignUpScreen from './SignUpScreen';
+import PostScreen from './PostScreen';
 
 export function registerScreens() {
   Navigation.registerComponent('petsgo.AppDrawer', () => AppDrawer, store, Provider);
@@ -23,4 +24,5 @@ export function registerScreens() {
   Navigation.registerComponent('petsgo.AdoptScreen', () => AdoptScreen, store, Provider);
   Navigation.registerComponent('petsgo.InfoScreen', () => InfoScreen, store, Provider);
   Navigation.registerComponent('petsgo.NewPostScreen', () => NewPostScreen, store, Provider);
+  Navigation.registerComponent('petsgo.PostScreen', () => PostScreen, store, Provider);
 }

@@ -63,5 +63,6 @@ export const SessionState = Immutable.fromJS({
 });
 
 export const PostState = Immutable.fromJS({
-  posts: []
+  posts: [],
+  post: {}
 });

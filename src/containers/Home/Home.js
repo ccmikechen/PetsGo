@@ -39,19 +39,19 @@ class Home extends React.Component {
         <ScrollableTabView
           style={styles.scrollableTabView}>
           <View style={styles.postsList} tabLabel="全部">
-            <PostsList posts={this.props.posts} />
+            <PostsList posts={this.props.posts} navigator={this.props.navigator} />
           </View>
           <View style={styles.postsList} tabLabel="協尋">
-            <PostsList posts={this.filterPosts(this.props.posts, 'lost')} />
+            <PostsList posts={this.filterPosts(this.props.posts, 'lost')} navigator={this.props.navigator} />
           </View>
           <View style={styles.postsList} tabLabel="活動">
-            <PostsList posts={this.filterPosts(this.props.posts, 'event')} />
+            <PostsList posts={this.filterPosts(this.props.posts, 'event')} navigator={this.props.navigator} />
           </View>
           <View style={styles.postsList} tabLabel="送養">
-            <PostsList posts={this.filterPosts(this.props.posts, 'adopt')} />
+            <PostsList posts={this.filterPosts(this.props.posts, 'adopt')} navigator={this.props.navigator} />
           </View>
           <View style={styles.postsList} tabLabel="看護">
-            <PostsList posts={this.filterPosts(this.props.posts, 'care')} />
+            <PostsList posts={this.filterPosts(this.props.posts, 'care')} navigator={this.props.navigator} />
           </View>
         </ScrollableTabView>
       </View>
