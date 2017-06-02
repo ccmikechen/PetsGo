@@ -8,6 +8,7 @@ export default {
       password
     })
     .then(response => {
+
       if (response.error) {
         throw new Error(response.error);
       }
@@ -68,6 +69,11 @@ export default {
       content,
       type
     })
-    .then(response => response.data)
+    .then(response => {
+      if (response.error) {
+        throw new Error(response.error)
+      }
+      return response.data;
+    })
   )
 };

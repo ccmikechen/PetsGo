@@ -37,9 +37,15 @@ const sessionReducer = handleActions({
   ),
   UPDATE_IS_LOGGING_IN: (state) => (
     state.setIn(['login', 'isLoggingIn'], true)
+    .setIn(['login', 'failed'], false)
+    .setIn(['login', 'error'], null)
   ),
   UPDATE_IS_NOT_LOGGING_IN: (state) => (
     state.setIn(['login', 'isLoggingIn'], false)
+  ),
+  LOGIN_FAILED: (state , { error }) => (
+    state.setIn(['login', 'failed'], true)
+    .setIn(['login', 'error'], error)
   ),
   UPDATE_IS_SIGNING_UP: (state) => (
     state.setIn(['signUp', 'isSigningUp'], true)

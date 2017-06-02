@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { View, Text, Button } from 'react-native';
+import { View, Text } from 'react-native';
+import Button from 'apsl-react-native-button';
 import SideMenuHeader from '../../components/SideMenuHeader';
 import styles from './styles';
 import {
@@ -34,10 +35,12 @@ class UserInfo extends React.Component {
           style={styles.menu}
         />
         <Button
-          title='LOGOUT'
           style={styles.logoutButton}
+          textStyle={styles.logoutButtonText}
           onPress={this.handleLogout}
-        />
+        >
+          登出
+        </Button>
       </View>
     );
   }

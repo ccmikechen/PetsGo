@@ -16,6 +16,10 @@ class Login extends React.Component {
     super(props);
   }
 
+  componentWillMount() {
+
+  }
+
   onSignUp() {
     this.props.navigator.showModal({
       screen:'petsgo.SignUpScreen',
@@ -42,7 +46,11 @@ class Login extends React.Component {
     return (
       <View style={styles.container}>
         <Text style={{color:"#388057",fontSize:20,textAlign:'center'}}>PetsGo</Text>
-        <Text style={{color:"rgb(232, 79, 30)",fontSize:14,textAlign:'center',marginTop:20}}>{this.props.error}</Text>
+        {this.props.failed == true ?
+          <Text style={{color:"rgb(232, 79, 30)",fontSize:14,textAlign:'center',marginTop:20}}>{this.props.error.error}</Text>
+          :
+          null
+        }
         <Fumi
           style={styles.fumi}
           label={'Username'}
@@ -87,7 +95,9 @@ export default connect((state) => ({
   username: state.getIn(['session', 'username']),
   password: state.getIn(['session', 'password']),
   isAuthenticated: state.getIn(['session', 'isAuthenticated']),
-  isLoggingIn: state.getIn(['session', 'login', 'isLoggingIn'])
+  isLoggingIn: state.getIn(['session', 'login', 'isLoggingIn']),
+  error: state.getIn(['session', 'login', 'error']),
+  failed: state.getIn(['session', 'login', 'failed'])
 }), {
   updateUsername, updatePassword, login
 }, (stateToProps, dispatchToProps, ownProps) => {

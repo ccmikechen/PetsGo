@@ -34,6 +34,7 @@ class NewPostScreen extends React.Component {
         });
       }
       if(event.id == 'post') {
+        
         this.props.navigator.dismissModal({
           screen:'petsgo.HomeScreen',
           title:'首頁',

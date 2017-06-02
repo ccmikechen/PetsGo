@@ -10,7 +10,6 @@ import {
 import Button from 'apsl-react-native-button';
 import styles from './styles';
 import { Hoshi } from 'react-native-textinput-effects';
-import ModalPicker from 'react-native-modal-picker';
 import { reduxForm, Field } from 'redux-form/immutable';
 import {
   updateUsername,
@@ -21,16 +20,9 @@ import {
 class SignUp extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      textInputValue: ''
-    }
   }
 
   componentWillMount() {
-  }
-
-  state = {
-    sex: 0,
   }
 
   onSignUp() {
@@ -70,29 +62,6 @@ class SignUp extends React.Component {
     );
   }
 
-  renderPicker() {
-    let index = 0;
-        const data = [
-            { key: index++, section: true, label: '男' },
-            { key: index++, label: '女' },
-            { key: index++, label: '其他' }
-        ];
-    return ({ input: { onChange, ...restInput }})  => (
-      <ModalPicker
-        data={data}
-        initValue="Sex"
-        onChange={(option)=>{ this.setState({textInputValue:option.label})}}>
-        <TextInput
-          style={{borderWidth:1, borderColor:'#ccc', padding:10, height:30}}
-          editable={false}
-          placeholder="Sex"
-          value={this.state.textInputValue}
-          {...restInput}
-        />
-      </ModalPicker>
-    );
-  }
-
   renderCover() {
     return (
       <View style={styles.cover}>
@@ -116,7 +85,7 @@ class SignUp extends React.Component {
           <Field name="email" component={this.renderInput('Email')} />
           <Field name="firstname" component={this.renderInput('Firstname')} />
           <Field name="lastname" component={this.renderInput('Lastname')} />
-          <Field name="sex" component={this.renderInput('Sex')} />
+
           <Button
             style={styles.signup}
             textStyle={{color:'white'}}

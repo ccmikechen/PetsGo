@@ -23,6 +23,18 @@ const navigatorStyle = {
   navBarTextColor: '#FFFFFF'
 };
 
+const tabsStyle = {
+  tabBarSelectedButtonColor: '#AADDEE',
+  tabBarBackgroundColor: '#ffffff',
+  tabBarTranslucent: true
+};
+
+const appStyle = {
+  tabBarSelectedButtonColor: '#AADDEE',
+  tabBarBackgroundColor: '#ffffff',
+  tabBarTranslucent: true
+}
+
 export const startMainApp = () => {
   Navigation.startTabBasedApp({
     tabs: [
@@ -60,7 +72,9 @@ export const startMainApp = () => {
       }
     },
     passProps: {},
-    animationType: ''
+    animationType: '',
+    tabsStyle,
+    appStyle
   });
 };
 

@@ -9,6 +9,10 @@ export default styles = StyleSheet.create({
     flex: 1
   },
   logoutButton: {
-
-  }
+    borderColor: '#EEEEEE',
+    backgroundColor:'#FFF'
+  },
+  logoutButtonText: {
+    color: '#ed183e'
+  },
 });
