@@ -61,7 +61,6 @@ class PostsList extends React.Component {
   }
 
   render() {
-    console.log('posts', this.props.posts);
     return (
       <ListView
         dataSource={this._genDataSource(this.props.posts)}

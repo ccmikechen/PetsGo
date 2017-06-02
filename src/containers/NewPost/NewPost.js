@@ -5,24 +5,38 @@ import NewPostHeader from '../../components/NewPostHeader';
 import NewPostTitle from '../../components/NewPostTitle';
 import NewPostContent from '../../components/NewPostContent';
 import NewPostFooter from '../../components/NewPostFooter';
-import { createPost } from '../../actions/sessionActions';
+import { getPosts } from '../../actions/postActions';
 import KeyboardSpacer from 'react-native-keyboard-spacer';
 import { reduxForm, Field } from 'redux-form/immutable';
 import styles from './styles';
+import petsgo from '../../api/petsgo';
 
 class NewPost extends React.Component {
   constructor(props) {
     super(props);
+    this.onSubmit = this.onSubmit.bind(this);
+    props.submitHandler.handleSubmit = () => (
+      new Promise((resolve, reject) => {
+        props.handleSubmit(this.onSubmit(resolve, reject))();
+      }
+    ));
   }
 
-  onSubmit(values) {
-    //console.log(this.props);
-    console.log('submitting form', values);
-    this.props.createPost({
-      title: values.get('title'),
-      content: values.get('content'),
-      type: 'event'
-    });
+  onSubmit(resolve, reject) {
+    return (values) => {
+      petsgo.createPost({
+        title: values.get('title'),
+        content: values.get('content'),
+        type: 'event'
+      })
+      .then(response => {
+        this.props.getPosts();
+        resolve(response);
+      })
+      .catch(error => {
+        reject(error);
+      });
+    }
   }
 
   renderTitle() {
@@ -55,7 +69,7 @@ class NewPost extends React.Component {
         </ScrollView>
         <Button
           title='submit'
-          onPress={this.props.handleSubmit(this.onSubmit.bind(this))}
+          onPress={this.props.handleSubmit(this.onSubmit)}
         />
         <NewPostFooter style={{justifyContent: 'flex-end'}}/>
         {Platform.OS == 'ios' ? <KeyboardSpacer /> : null}
@@ -70,5 +84,5 @@ const NewoPostForm = reduxForm({
 
 export default connect(
   null,
-  { createPost }
+  { getPosts }
 )(NewoPostForm);

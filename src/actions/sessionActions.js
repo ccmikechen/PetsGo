@@ -89,13 +89,3 @@ export const updateUsername = (username) => (dispatch) => {
 export const updatePassword = (password) => (dispatch) => {
   return dispatch({ type: UPDATE_PASSWORD, password });
 };
-
-export const createPost = (data) => (dispatch) => {
-  petsgo.createPost(data)
-  .then(response => {
-    console.log(response)
-  })
-  .catch(error => {
-    console.log(error)
-  });
-}

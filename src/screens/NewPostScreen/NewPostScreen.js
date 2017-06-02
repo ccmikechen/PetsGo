@@ -5,6 +5,9 @@ class NewPostScreen extends React.Component {
   constructor(props) {
     super(props);
     this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
+    this.submitHandler = {
+      handleSubmit: () => {}
+    };
   }
 
   static navigatorButtons = {
@@ -34,13 +37,19 @@ class NewPostScreen extends React.Component {
         });
       }
       if(event.id == 'post') {
-        
-        this.props.navigator.dismissModal({
-          screen:'petsgo.HomeScreen',
-          title:'首頁',
-          passProps: {},
-          animated:true,
-          animationType: 'slide-down'
+        console.log('handleSubmit', this.submitHandler.handleSubmit);
+        this.submitHandler.handleSubmit()
+        .then(response => {
+          this.props.navigator.dismissModal({
+            screen:'petsgo.HomeScreen',
+            title:'首頁',
+            passProps: {},
+            animated:true,
+            animationType: 'slide-down'
+          });
+        })
+        .catch(error => {
+          console.error(error);
         });
       }
     }
@@ -48,7 +57,7 @@ class NewPostScreen extends React.Component {
 
   render() {
     return (
-      <NewPost navigator={this.props.navigator} />
+      <NewPost navigator={this.props.navigator} submitHandler={this.submitHandler} />
     );
   }
 }

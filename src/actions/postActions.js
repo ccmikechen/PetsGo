@@ -3,13 +3,10 @@ import {
   UPDATE_POSTS
 } from '../constants/actionTypes';
 
-export const createNewPost = (data) => (dispatch) => {
+export const createPost = (data) => (dispatch) => {
   petsgo.createPost(data)
   .then(data => {
-
-  })
-  .catch(error => {
-
+    return data;
   });
 };
 
