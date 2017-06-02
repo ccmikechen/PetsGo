@@ -6,5 +6,8 @@ export default styles = StyleSheet.create({
   },
   scrollableTabView: {
     flex: 2
+  },
+  postsList: {
+    backgroundColor: 'lightgrey'
   }
 });

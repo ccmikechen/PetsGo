@@ -61,7 +61,12 @@ export default {
   ),
   getAllPosts: () => (
     server.fetch('/posts')
-    .then(response => response.data)
+    .then(response => {
+      if (response.error) {
+        throw new Error(response.error);
+      }
+      return response.data;
+    })
   ),
   createPost: ({ title, content, type }) => (
     server.post('/posts', {
@@ -70,8 +75,8 @@ export default {
       type
     })
     .then(response => {
-      if (response.error) {
-        throw new Error(response.error)
+      if (response.errors) {
+        throw new Error(response.errors);
       }
       return response.data;
     })

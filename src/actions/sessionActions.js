@@ -1,4 +1,3 @@
-import { AsyncStorage } from 'react-native';
 import petsgo from '../api/petsgo';
 import {
   UPDATE_USERNAME,

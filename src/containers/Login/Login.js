@@ -25,6 +25,10 @@ class Login extends React.Component {
       screen:'petsgo.SignUpScreen',
       title:'註冊',
       passProps: {},
+      navigatorStyle: {
+        navBarBackgroundColor: '#AADDEE',
+        navBarTextColor: '#FFFFFF'
+      },
       animated:true,
       animationType: 'slide-up'
     });

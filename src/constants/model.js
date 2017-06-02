@@ -61,3 +61,7 @@ export const SessionState = Immutable.fromJS({
     birthday: null
   }
 });
+
+export const PostState = Immutable.fromJS({
+  posts: []
+});
