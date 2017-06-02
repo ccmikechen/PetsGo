@@ -64,5 +64,17 @@ export const SessionState = Immutable.fromJS({
 
 export const PostState = Immutable.fromJS({
   posts: [],
-  post: {}
+  post: {
+    user: {
+      first_name: '',
+      last_name: '',
+      username: '',
+      image: ''
+    },
+    title: '',
+    content: '',
+    type: '',
+    updated_at: ''
+  },
+  isFetchingPost: false
 });

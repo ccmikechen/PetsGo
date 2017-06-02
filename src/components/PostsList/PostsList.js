@@ -13,8 +13,14 @@ const parseTypeToName = (type) => {
   return typeNames[type];
 };
 
-const PostsListItem = ({ post }) => {
+const ellipsizeContent = (content) => {
+  if (content.length > 16) {
+    return content.substring(0, 16) + '...';
+  }
+  return content;
+}
 
+const PostsListItem = ({ post }) => {
   if (post && post.user) {
     return (
         <View style={styles.listItem} key={post.id}>
@@ -32,7 +38,12 @@ const PostsListItem = ({ post }) => {
             />
             <View style={styles.textColumn}>
               <Text style={styles.title}>{post.title}</Text>
-              <Text style={styles.content} ellipsizeMode={'tail'} numberOfLines={1}>{post.content}</Text>
+              <Text
+                style={styles.content}
+                numberOfLines={1}
+              >
+                {ellipsizeContent(post.content)}
+              </Text>
               <Text style={styles.username}>{post.user.first_name}{post.user.last_name}</Text>
             </View>
             <View style={styles.arrowColumn}>

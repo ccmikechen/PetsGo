@@ -36,5 +36,15 @@ export default styles = StyleSheet.create({
     marginTop: 20,
     color: '#626161',
     marginBottom: 25
+  },
+  cover: {
+    position: 'absolute',
+    left: 0,
+    top: 0,
+    right: 0,
+    bottom: 0,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#f5f1f1'
   }
 });

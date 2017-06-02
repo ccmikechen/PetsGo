@@ -1,7 +1,9 @@
 import petsgo from '../api/petsgo';
 import {
   UPDATE_POSTS,
-  UPDATE_POST
+  UPDATE_POST,
+  UPDATE_IS_FETCHING_POST,
+  UPDATE_IS_NOT_FETCHING_POST
 } from '../constants/actionTypes';
 
 export const createPost = (data) => (dispatch) => {
@@ -22,11 +24,14 @@ export const getPosts = () => (dispatch) => {
 };
 
 export const getPost = (id) => (dispatch) => {
+  dispatch({ type: UPDATE_IS_FETCHING_POST });
+
   petsgo.getPost(id)
   .then(post => {
     dispatch({ type: UPDATE_POST, post });
+    dispatch({ type: UPDATE_IS_NOT_FETCHING_POST });
   })
   .catch(error => {
-
+    dispatch({ type: UPDATE_IS_NOT_FETCHING_POST });
   })
 }
