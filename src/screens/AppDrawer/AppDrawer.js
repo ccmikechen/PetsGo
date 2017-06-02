@@ -1,30 +1,8 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { View, Button } from 'react-native';
-import styles from './styles';
-import { logout } from '../../actions/sessionActions';
+import SideMenu from '../../containers/SideMenu';
 
-class AppDrawer extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleLogout = this.handleLogout.bind(this);
-  }
+const AppDrawer = () => (
+  <SideMenu />
+);
 
-  handleLogout() {
-    this.props.logout();
-  }
-
-  render() {
-    return (
-      <View style={styles.container}>
-        <Button title='LOGOUT' onPress={this.handleLogout} />
-      </View>
-    );
-  }
-}
-
-export default connect(
-  null, {
-    logout
-  }
-)(AppDrawer);
+export default AppDrawer;
