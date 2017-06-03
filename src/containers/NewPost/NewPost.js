@@ -43,7 +43,6 @@ class NewPost extends React.Component {
         type: this.formartTypeIndex(values.get('type')).toString(),
       })
       .then(response => {
-        this.props.getPosts();
         resolve(response);
       })
       .catch(error => {
