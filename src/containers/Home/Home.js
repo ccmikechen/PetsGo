@@ -6,7 +6,8 @@ import ScrollableTabView from 'react-native-scrollable-tab-view';
 import PostsList from '../../components/PostsList';
 import styles from './styles';
 import {
-  getPosts
+  getPosts,
+  joinPostChannel
 } from '../../actions/postActions';
 
 class Home extends React.Component {
@@ -16,6 +17,7 @@ class Home extends React.Component {
 
   componentWillMount() {
     this.props.getPosts();
+    this.props.joinPostChannel();
   }
 
   filterPosts(posts, type) {
@@ -62,5 +64,6 @@ class Home extends React.Component {
 export default connect((state) => ({
   posts: state.getIn(['post', 'posts'])
 }), {
-  getPosts
+  getPosts,
+  joinPostChannel
 })(Home);

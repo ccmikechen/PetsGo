@@ -5,9 +5,13 @@ import NewPostHeader from '../../components/NewPostHeader';
 import NewPostTitle from '../../components/NewPostTitle';
 import NewPostContent from '../../components/NewPostContent';
 import NewPostFooter from '../../components/NewPostFooter';
-import { getPosts } from '../../actions/postActions';
 import KeyboardSpacer from 'react-native-keyboard-spacer';
 import { reduxForm, Field } from 'redux-form/immutable';
+
+import {
+  getPosts,
+  createPost
+} from '../../actions/postActions';
 import styles from './styles';
 import petsgo from '../../api/petsgo';
 
@@ -17,7 +21,8 @@ class NewPost extends React.Component {
     this.onSubmit = this.onSubmit.bind(this);
     props.submitHandler.handleSubmit = () => (
       new Promise((resolve, reject) => {
-        props.handleSubmit(this.onSubmit(resolve, reject))();
+        let onSubmit = this.onSubmit(props.createPost({ resolve, reject }));
+        props.handleSubmit(onSubmit)();
       }
     ));
   }
@@ -32,23 +37,16 @@ class NewPost extends React.Component {
     return typeNames[index];
   }
 
-  onSubmit(resolve, reject) {
+  onSubmit(createPost) {
     return (values) => {
       if(typeof values.get('type') == 'undefined' || values.get('type')== '-1') {
          return Alert.alert('petsgo','請選擇分類')
       }
-      petsgo.createPost({
+      createPost({
         title: values.get('title'),
         content: values.get('content'),
         type: this.formartTypeIndex(values.get('type')).toString(),
-      })
-      .then(response => {
-        resolve(response);
-      })
-      .catch(error => {
-        reject(error);
       });
-
     }
   }
 
@@ -100,7 +98,8 @@ const NewoPostForm = reduxForm({
   form: 'NewoPostForm'
 })(NewPost);
 
-export default connect(
-  null,
-  { getPosts }
+export default connect(null, {
+  getPosts,
+  createPost
+}
 )(NewoPostForm);

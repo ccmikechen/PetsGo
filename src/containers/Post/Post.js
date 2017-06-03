@@ -9,7 +9,9 @@ import {
   ActivityIndicator
 } from 'react-native';
 import styles from './styles';
-import { getPost } from '../../actions/postActions';
+import {
+  getPost
+} from '../../actions/postActions';
 
 class Post extends React.Component {
   constructor(props) {

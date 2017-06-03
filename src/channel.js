@@ -1,6 +1,6 @@
 import { Socket } from 'phoenix';
 
-const SOCKET_URL = 'wss://test.bearlab.io/socket';
+const SOCKET_URL = 'ws://test.bearlab.io/socket';
 
 export const configureChannel = () => {
   let socket = new Socket(SOCKET_URL, {
