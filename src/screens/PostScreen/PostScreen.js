@@ -1,4 +1,5 @@
 import React from 'react';
+import { Share } from 'react-native';
 import Post from '../../containers/Post';
 
 class PostScreen extends React.Component {
@@ -13,8 +14,35 @@ class PostScreen extends React.Component {
         id: 'cancel',
         title: 'X'
       }
+    ],
+    rightButtons: [
+      {
+        id: 'share',
+        title: 'share'
+      }
     ]
   };
+
+  _shareMessage() {
+    Share.share({
+      message: 'this.props.postContent',
+      title: 'this.props.postTitle'
+    })
+    .then(this._showResult)
+    .catch((error) => this.setState({result: 'error: ' + error.message}));
+  }
+
+  _showResult(result) {
+    if (result.action === Share.sharedAction) {
+      if (result.activityType) {
+        this.setState({result: 'shared with an activityType: ' + result.activityType});
+      } else {
+        this.setState({result: 'shared'});
+      }
+    } else if (result.action === Share.dismissedAction) {
+      this.setState({result: 'dismissed'});
+    }
+  }
 
   onNavigatorEvent(event) {
     if (event.type == 'NavBarButtonPress') {
@@ -26,6 +54,9 @@ class PostScreen extends React.Component {
           animated:true,
           animationType: 'slide-down'
         });
+      }
+      if(event.id == 'share') {
+        this._shareMessage();
       }
     }
   }

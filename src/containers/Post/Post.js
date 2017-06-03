@@ -24,7 +24,7 @@ class Post extends React.Component {
     const typeNames = {
       lost: '協尋',
       event: '活動',
-      adoption: '送養',
+      adopt: '送養',
       care: '看護'
     };
 
@@ -64,7 +64,10 @@ class Post extends React.Component {
             style={styles.userimage}
             source={{uri: 'https://d36lyudx79hk0a.cloudfront.net/p0/mn/p2/c16531eda44144f6.jpg'}}
           />
-          <Text style={styles.username}>{`${first_name}${last_name}`}</Text>
+          <View style={styles.user}>
+            <Text style={styles.username}>{`${first_name}${last_name}`}</Text>
+            <Text style={styles.userid}>@{username}</Text>
+          </View>
         </View>
         <Text style={styles.title}>{title}</Text>
         <Text style={styles.typedatetime}>{`${typeName}版 ${date}`}</Text>

@@ -25,7 +25,10 @@ class HomeScreen extends React.Component {
           title:'撰寫貼文',
           passProps: {},
           animated:true,
-          animationType: 'slide-up'
+          animationType: 'slide-up',
+          navigatorStyle: {
+            navBarBackgroundColor:'#ffffff'
+          }
         });
 
       }

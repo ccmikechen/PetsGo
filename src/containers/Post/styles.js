@@ -7,19 +7,25 @@ export default styles = StyleSheet.create({
     padding: 15
   },
   header: {
-    flexDirection: 'row'
+    flexDirection: 'row',
   },
   userimage: {
-    height: 80,
-    width: 80,
-    borderRadius: 40,
+    height: 50,
+    width: 50,
+    borderRadius: 25,
     marginTop: 10,
   },
-  username: {
+  user:{
     flex: 1,
-    marginTop: 40,
+    marginTop: 20,
     marginLeft: 10,
+  },
+  username: {
     fontSize: 16
+  },
+  userid:{
+    fontSize: 14,
+    color: '#9a9696'
   },
   title: {
     fontSize: 25,

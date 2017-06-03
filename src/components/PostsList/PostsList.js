@@ -28,11 +28,11 @@ const ellipsizeContent = (content) => {
 }
 
 const PostsListItem = ({ post }) => {
-  let typeStyle  = post.type == 'lost' ? styles.lostType :
-  post.type == 'event' ? styles.eventType :
-  post.type == 'adopt' ? styles.adoptType :
-  post.type == 'care' ? styles.careType : null;
   if (post && post.user) {
+    let typeStyle  = post.type == 'lost' ? styles.lostType :
+    post.type == 'event' ? styles.eventType :
+    post.type == 'adopt' ? styles.adoptType :
+    post.type == 'care' ? styles.careType : null;
     return (
         <View style={styles.listItem} key={post.id}>
           <View style={styles.typeRow}>
@@ -78,6 +78,13 @@ class PostsList extends React.Component {
     super(props);
   }
 
+   ellipsizeTitle = (title) => {
+    if (title.length > 10) {
+      return title.substring(0, 10) + '...';
+    }
+    return title;
+  }
+
   _genDataSource(posts) {
     if (this.dataSource == undefined) {
       this.dataSource = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
@@ -86,19 +93,26 @@ class PostsList extends React.Component {
     return this.dataSource;
   }
 
-  onPressPost(navigator, postId) {
+  onPressPost(navigator, postId, postTitle, postContent) {
     navigator.showModal({
       screen:'petsgo.PostScreen',
-      title: '',
-      passProps: { postId },
+      title: ellipsizeTitle(postTitle),
+      passProps: { postId, postTitle, postContent },
       animated:true,
-      animationType: 'slide-up'
+      animationType: 'slide-up',
+      navigatorStyle: {
+        navBarTextColor: '#666464',
+        navBarBackgroundColor: '#f5f1f1',
+        navBarLeftButtonFontSize: 22,
+        navBarLeftButtonColor: '#000',
+
+      }
     });
   }
 
   _renderRow(onPress, navigator) {
     return (post) => (
-      <TouchableOpacity onPress={() => onPress(navigator, post.id)}>
+      <TouchableOpacity onPress={() => onPress(navigator, post.id, post.title, post.content)}>
         <PostsListItem post={post} />
       </TouchableOpacity>
     );
