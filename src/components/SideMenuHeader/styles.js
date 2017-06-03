@@ -6,7 +6,7 @@ export default styles = StyleSheet.create({
     padding: 20,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#a2dbef'
+    backgroundColor: '#339dbf'
   },
   image: {
     height: 60,

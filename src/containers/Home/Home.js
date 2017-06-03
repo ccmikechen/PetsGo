@@ -24,6 +24,14 @@ class Home extends React.Component {
     ));
   }
 
+  handleScroll(event: Object) {
+    console.log(event.nativeEvent.contentOffset.y);
+    if(event.nativeEvent.contentOffset.y > 20) {
+
+    }
+  }
+
+
   render() {
     return (
       <View style={styles.container}>
@@ -39,7 +47,7 @@ class Home extends React.Component {
         <ScrollableTabView
           style={styles.scrollableTabView}>
           <View style={styles.postsList} tabLabel="全部">
-            <PostsList posts={this.props.posts} navigator={this.props.navigator} />
+            <PostsList onScroll={this.handleScroll}  posts={this.props.posts} navigator={this.props.navigator} />
           </View>
           <View style={styles.postsList} tabLabel="協尋">
             <PostsList posts={this.filterPosts(this.props.posts, 'lost')} navigator={this.props.navigator} />
