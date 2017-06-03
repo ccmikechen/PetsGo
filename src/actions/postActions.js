@@ -6,9 +6,7 @@ import {
   UPDATE_IS_NOT_FETCHING_POST
 } from '../constants/actionTypes';
 
-import { configureChannel } from '../channel';
-let socket = configureChannel();
-let channel = socket.channel('post');
+import { postChannel } from '../channel';
 
 export const createPost = ({ resolve, reject }) => (dispatch) => (data) => {
   petsgo.createPost(data)
@@ -18,7 +16,7 @@ export const createPost = ({ resolve, reject }) => (dispatch) => (data) => {
   })
   .then(data => {
     console.log('push new:post');
-    channel.push('new:post')
+    postChannel.push('new:post')
     .receive('ok', response => {
       console.log('ok', response);
     })
@@ -57,16 +55,19 @@ export const getPost = (id) => (dispatch) => {
 }
 
 export const joinPostChannel = () => (dispatch) => {
-  console.log('start join');
-  channel.join()
+  postChannel.join()
   .receive('ok', messages => {
     console.log('join ok');
   })
   .receive('error', reason => {
     console.log('join error', reason);
   });
-  channel.on('new:post', () => {
+  postChannel.on('new:post', () => {
     console.log('new:post');
     getPosts()(dispatch);
   });
 };
+
+export const leavePostChannel = () => (dispatch) => {
+  postChannel.leave();
+}

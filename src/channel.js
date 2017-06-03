@@ -2,7 +2,7 @@ import { Socket } from 'phoenix';
 
 const SOCKET_URL = 'ws://test.bearlab.io/socket';
 
-export const configureChannel = () => {
+const configureChannel = () => {
   let socket = new Socket(SOCKET_URL, {
     logger: (kind, msg, data) => {
       console.log(`${kind}: ${msg}`, data);
@@ -13,3 +13,7 @@ export const configureChannel = () => {
 
   return socket;
 };
+
+let socket = configureChannel();
+
+export const postChannel = socket.channel('post');

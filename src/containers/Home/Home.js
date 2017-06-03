@@ -7,7 +7,8 @@ import PostsList from '../../components/PostsList';
 import styles from './styles';
 import {
   getPosts,
-  joinPostChannel
+  joinPostChannel,
+  leavePostChannel
 } from '../../actions/postActions';
 
 class Home extends React.Component {
@@ -18,6 +19,10 @@ class Home extends React.Component {
   componentWillMount() {
     this.props.getPosts();
     this.props.joinPostChannel();
+  }
+
+  componentWillUnmount() {
+    this.props.leavePostChannel();
   }
 
   filterPosts(posts, type) {
@@ -32,7 +37,6 @@ class Home extends React.Component {
 
     }
   }
-
 
   render() {
     return (
@@ -73,5 +77,6 @@ export default connect((state) => ({
   posts: state.getIn(['post', 'posts'])
 }), {
   getPosts,
-  joinPostChannel
+  joinPostChannel,
+  leavePostChannel
 })(Home);
