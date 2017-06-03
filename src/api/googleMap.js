@@ -16,12 +16,20 @@ const parseResults = (type) => (results) => (
 );
 
 const fetchLocationsByKeyword = (position, keyword, type) => {
+  let location = position ?
+    `${position.coords.latitude},${position.coords.longitude}` :
+    '';
+
   return api.fetch(API_URL, {
-    location: `${position.coords.latitude},${position.coords.longitude}`,
-    rankby: 'distance',
+    location,
+    rankby: position? 'distance' : '',
     key: API_KEY,
     query: keyword,
     language: 'zh-TW',
+  })
+  .then(results => {
+    console.log('api', results);
+    return results;
   })
   .then(parseResults(type));
 }
@@ -39,4 +47,7 @@ export default {
   getNecessities: (position) => (
     fetchLocationsByKeyword(position, '寵物 用品', 'necessities')
   ),
+  getShelterPositions: (address) => (
+    fetchLocationsByKeyword(null, address, 'shelter')
+  )
 };

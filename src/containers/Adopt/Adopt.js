@@ -10,23 +10,50 @@ class Adopt extends React.Component {
   constructor(props) {
     super(props);
     this.onPressUpdateButton = this.onPressUpdateButton.bind(this);
+    this.onPress = this.onPress.bind(this);
   }
 
   componentWillMount() {
     this.props.fetchAdoptionList();
   }
 
-  onPressUpdateButton = () => {
+  onPressUpdateButton() {
     this.props.fetchAdoptionList();
   }
 
+  onPress(navigator) {
+    return (animal) => () => {
+      navigator.showModal({
+        screen:'petsgo.AdoptionInfoScreen',
+        title: '',
+        passProps: {
+          navigator,
+          animal
+        },
+        animated: true,
+        animationType: 'slide-up'
+      });
+    };
+  }
+
+  renderItem(navigator) {
+    return (animal) => (
+      <AdoptionListItem
+        navigator={navigator}
+        onPress={this.onPress(navigator)}
+        animal={animal} />
+    );
+  }
+
   render() {
+    let { navigator, animals } = this.props;
+
     return (
       <View style={styles.container}>
         <GridView
-          items={this.props.animals}
+          items={animals}
           itemsPerRow={2}
-          renderItem={AdoptionListItem}
+          renderItem={this.renderItem(navigator)}
           style={{flex: 1}}
           enableEmptySections={true}
         />
@@ -35,9 +62,8 @@ class Adopt extends React.Component {
   }
 }
 
-export default connect(
-  (state) => ({
-    animals: state.getIn(['adopt', 'animals'])
-  }),
-  { fetchAdoptionList }
-)(Adopt);
+export default connect((state) => ({
+  animals: state.getIn(['adopt', 'animals']).toJS()
+}), {
+  fetchAdoptionList
+})(Adopt);

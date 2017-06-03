@@ -32,7 +32,8 @@ export const SearchState = Immutable.fromJS({
 });
 
 export const AdoptState = Immutable.fromJS({
-  animals: []
+  animals: [],
+  shelters: []
 });
 
 export const SessionState = Immutable.fromJS({

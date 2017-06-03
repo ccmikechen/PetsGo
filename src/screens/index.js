@@ -7,6 +7,7 @@ import HomeScreen from './HomeScreen';
 import SearchScreen from './SearchScreen';
 import CameraScreen from './CameraScreen';
 import AdoptScreen from './AdoptScreen';
+import AdoptionInfoScreen from './AdoptionInfoScreen';
 import InfoScreen from './InfoScreen';
 import NewPostScreen from './NewPostScreen';
 import LoginScreen from './LoginScreen';
@@ -22,6 +23,7 @@ export function registerScreens() {
   Navigation.registerComponent('petsgo.SearchScreen', () => SearchScreen, store, Provider);
   Navigation.registerComponent('petsgo.CameraScreen', () => CameraScreen, store, Provider);
   Navigation.registerComponent('petsgo.AdoptScreen', () => AdoptScreen, store, Provider);
+  Navigation.registerComponent('petsgo.AdoptionInfoScreen', () => AdoptionInfoScreen, store, Provider);
   Navigation.registerComponent('petsgo.InfoScreen', () => InfoScreen, store, Provider);
   Navigation.registerComponent('petsgo.NewPostScreen', () => NewPostScreen, store, Provider);
   Navigation.registerComponent('petsgo.PostScreen', () => PostScreen, store, Provider);
