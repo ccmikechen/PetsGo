@@ -20,13 +20,11 @@ export default styles = StyleSheet.create({
       marginLeft:10,
       marginTop:10,
       padding:2,
-      textAlign:'center',
       backgroundColor:'#67CC67',
       borderRadius:10,
       borderWidth: 1,
       overflow: 'hidden',
       borderColor: '#67CC67',
-      fontSize:13,
-      color:'#FFF'
+
   }
 });

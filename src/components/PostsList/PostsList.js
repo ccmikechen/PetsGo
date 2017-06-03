@@ -6,12 +6,19 @@ const parseTypeToName = (type) => {
   const typeNames = {
     lost: '協尋',
     event: '活動',
-    adoption: '送養',
+    adopt: '送養',
     care: '看護'
   };
 
   return typeNames[type];
 };
+
+const ellipsizeTitle = (title) => {
+  if (title.length > 10) {
+    return title.substring(0, 10) + '...';
+  }
+  return title;
+}
 
 const ellipsizeContent = (content) => {
   if (content.length > 16) {
@@ -37,7 +44,12 @@ const PostsListItem = ({ post }) => {
               source={{uri: 'https://d36lyudx79hk0a.cloudfront.net/p0/mn/p2/c16531eda44144f6.jpg'}}
             />
             <View style={styles.textColumn}>
-              <Text style={styles.title}>{post.title}</Text>
+              <Text
+                numberOfLines={1}
+                style={styles.title}
+              >
+                {ellipsizeTitle(post.title)}
+              </Text>
               <Text
                 style={styles.content}
                 numberOfLines={1}

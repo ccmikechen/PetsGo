@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { View, ScrollView, Button, Platform } from 'react-native';
+import { View, ScrollView, Button, Platform, Alert } from 'react-native';
 import NewPostHeader from '../../components/NewPostHeader';
 import NewPostTitle from '../../components/NewPostTitle';
 import NewPostContent from '../../components/NewPostContent';
@@ -22,12 +22,25 @@ class NewPost extends React.Component {
     ));
   }
 
+  formartTypeIndex(index) {
+    const typeNames = {
+      0:'event',
+      1:'lost',
+      2:'adopt',
+      3:'care'
+    };
+    return typeNames[index];
+  }
+
   onSubmit(resolve, reject) {
     return (values) => {
+      if(typeof values.get('type') == 'undefined' || values.get('type')== '-1') {
+         return Alert.alert('petsgo','請選擇分類')
+      }
       petsgo.createPost({
         title: values.get('title'),
         content: values.get('content'),
-        type: 'event'
+        type: this.formartTypeIndex(values.get('type')).toString(),
       })
       .then(response => {
         this.props.getPosts();
@@ -36,6 +49,7 @@ class NewPost extends React.Component {
       .catch(error => {
         reject(error);
       });
+
     }
   }
 
@@ -59,11 +73,20 @@ class NewPost extends React.Component {
     );
   }
 
+  renderType() {
+    return ({ input: { onChange, ...restInput }}) => (
+      <NewPostHeader
+        onSelect={onChange}
+        {...restInput}
+      />
+    );
+  }
+
   render() {
     return (
       <View style={styles.container}>
         <ScrollView style={{flex:1, backgroundColor: 'white'}}>
-          <NewPostHeader />
+          <Field name="type" component={this.renderType()} />
           <Field name="title" component={this.renderTitle()} />
           <Field name="content" component={this.renderContent()} />
         </ScrollView>
