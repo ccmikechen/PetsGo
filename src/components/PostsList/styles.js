@@ -13,8 +13,38 @@ export default styles = StyleSheet.create({
   typeRow: {
     paddingTop: 5
   },
-  typeContainer: {
-    backgroundColor: '#e8827d',
+  lostType: {
+    backgroundColor: '#78d273',
+    width: 50,
+    height: 25,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 10,
+    borderColor: 'lightgrey',
+    borderWidth: 2
+  },
+  eventType: {
+    backgroundColor: '#7dd2e8',
+    width: 50,
+    height: 25,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 10,
+    borderColor: 'lightgrey',
+    borderWidth: 2
+  },
+  adoptType: {
+    backgroundColor: '#7d8be8',
+    width: 50,
+    height: 25,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 10,
+    borderColor: 'lightgrey',
+    borderWidth: 2
+  },
+  careType: {
+    backgroundColor: '#e87d87',
     width: 50,
     height: 25,
     justifyContent: 'center',

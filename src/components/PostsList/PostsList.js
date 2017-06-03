@@ -28,11 +28,15 @@ const ellipsizeContent = (content) => {
 }
 
 const PostsListItem = ({ post }) => {
+  let typeStyle  = post.type == 'lost' ? styles.lostType :
+  post.type == 'event' ? styles.eventType :
+  post.type == 'adopt' ? styles.adoptType :
+  post.type == 'care' ? styles.careType : null;
   if (post && post.user) {
     return (
         <View style={styles.listItem} key={post.id}>
           <View style={styles.typeRow}>
-            <View style={styles.typeContainer}>
+            <View style={typeStyle}>
               <Text style={styles.type}>
                 {parseTypeToName(post.type)}
               </Text>
