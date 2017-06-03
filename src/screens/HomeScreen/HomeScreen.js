@@ -27,7 +27,8 @@ class HomeScreen extends React.Component {
           animated:true,
           animationType: 'slide-up',
           navigatorStyle: {
-            navBarBackgroundColor:'#ffffff'
+            navBarBackgroundColor:'#ffffff',
+            navBarButtonColor:'#000000'
           }
         });
 

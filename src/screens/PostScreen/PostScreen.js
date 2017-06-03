@@ -8,6 +8,7 @@ class PostScreen extends React.Component {
     this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
   }
 
+
   static navigatorButtons = {
     leftButtons: [
       {
@@ -18,7 +19,7 @@ class PostScreen extends React.Component {
     rightButtons: [
       {
         id: 'share',
-        title: 'share'
+        icon: require('../../../img/share.png'),
       }
     ]
   };

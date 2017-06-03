@@ -77,10 +77,17 @@ export default styles = StyleSheet.create({
     marginTop: -2,
     color: 'grey'
   },
+  user:{
+    flexDirection: 'row',
+    marginTop:9
+  },
+  userIcon:{
+    marginTop:2
+  },
   username: {
+    marginLeft:3,
     fontSize: 14,
-    color: 'lightgrey',
-    marginTop: 5
+    color: '#adadad',
   },
   arrowColumn: {
     justifyContent: 'center',

@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, ListView, Text, Image, TouchableOpacity } from 'react-native';
 import styles from './styles';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const parseTypeToName = (type) => {
   const typeNames = {
@@ -60,7 +61,10 @@ const PostsListItem = ({ post }) => {
               >
                 {ellipsizeContent(post.content)}
               </Text>
-              <Text style={styles.username}>{post.user.first_name}{post.user.last_name}</Text>
+              <View style={styles.user}>
+                <Icon style={styles.userIcon} name='user' size={12} color='#adadad' />
+                <Text style={styles.username}>{post.user.first_name}{post.user.last_name}</Text>
+              </View>
             </View>
             <View style={styles.arrowColumn}>
               <Text style={styles.arrow}>{'>'}</Text>
@@ -76,6 +80,7 @@ const PostsListItem = ({ post }) => {
 class PostsList extends React.Component {
   constructor(props) {
     super(props);
+
   }
 
    ellipsizeTitle = (title) => {
@@ -104,8 +109,7 @@ class PostsList extends React.Component {
         navBarTextColor: '#666464',
         navBarBackgroundColor: '#f5f1f1',
         navBarLeftButtonFontSize: 22,
-        navBarLeftButtonColor: '#000',
-
+        navBarButtonColor: '#000',
       }
     });
   }
@@ -118,9 +122,12 @@ class PostsList extends React.Component {
     );
   }
 
+
+
   render() {
     return (
       <ListView
+        onScroll={this.props.onScroll}
         dataSource={this._genDataSource(this.props.posts)}
         renderRow={this._renderRow(this.onPressPost, this.props.navigator)}
       />

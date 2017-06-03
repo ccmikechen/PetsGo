@@ -19,18 +19,19 @@ export const startSplashApp = () => {
 };
 
 const navigatorStyle = {
-  navBarBackgroundColor: '#AADDEE',
-  navBarTextColor: '#FFFFFF'
+  navBarBackgroundColor: '#339dbf',
+  navBarTextColor: '#FFFFFF',
+  navBarButtonColor:'#FFFFFF'
 };
 
 const tabsStyle = {
-  tabBarSelectedButtonColor: '#AADDEE',
+  tabBarSelectedButtonColor: '#339dbf',
   tabBarBackgroundColor: '#ffffff',
   tabBarTranslucent: true
 };
 
 const appStyle = {
-  tabBarSelectedButtonColor: '#AADDEE',
+  tabBarSelectedButtonColor: '#339dbf',
   tabBarBackgroundColor: '#ffffff',
   tabBarTranslucent: true
 }
