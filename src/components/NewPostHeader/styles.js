@@ -17,14 +17,14 @@ export default styles = StyleSheet.create({
   },
   type:{
     marginRight:40,
-      marginLeft:10,
-      marginTop:10,
-      padding:2,
-      backgroundColor:'#67CC67',
-      borderRadius:10,
-      borderWidth: 1,
-      overflow: 'hidden',
-      borderColor: '#67CC67',
+    marginLeft:10,
+    marginTop:10,
+    padding:4,
+    backgroundColor:'#67CC67',
+    borderRadius:10,
+    borderWidth: 1,
+    overflow: 'hidden',
+    borderColor: '#67CC67',
 
   }
 });
