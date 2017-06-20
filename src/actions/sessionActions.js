@@ -57,7 +57,6 @@ export const logout = () => (dispatch) => {
   petsgo.destroySession()
   .then(response => {
     dispatch({ type: UPDATE_UNAUTHENTICATED });
-    console.log('logout', response);
     startLoginApp();
   });
 };

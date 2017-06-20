@@ -28,7 +28,6 @@ const fetchLocationsByKeyword = (position, keyword, type) => {
     language: 'zh-TW',
   })
   .then(results => {
-    console.log('api', results);
     return results;
   })
   .then(parseResults(type));

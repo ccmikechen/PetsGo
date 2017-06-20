@@ -11,17 +11,13 @@ import { postChannel } from '../channel';
 export const createPost = ({ resolve, reject }) => (dispatch) => (data) => {
   petsgo.createPost(data)
   .then(data => {
-    console.log('response data', data);
     return data;
   })
   .then(data => {
-    console.log('push new:post');
     postChannel.push('new:post')
     .receive('ok', response => {
-      console.log('ok', response);
     })
     .receive('error', error => {
-      console.log('error', error);
     });
     resolve(data);
     return data;
@@ -57,13 +53,10 @@ export const getPost = (id) => (dispatch) => {
 export const joinPostChannel = () => (dispatch) => {
   postChannel.join()
   .receive('ok', messages => {
-    console.log('join ok');
   })
   .receive('error', reason => {
-    console.log('join error', reason);
   });
   postChannel.on('new:post', () => {
-    console.log('new:post');
     getPosts()(dispatch);
   });
 };

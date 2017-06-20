@@ -11,7 +11,7 @@ export default AdoptionListItem = ({ onPress, animal }) => (
         {animal.image == '' ?
           <Image
             style={styles.image}
-            source={require('../../../img/No-image-found.jpg')}
+            source={require('../../../img/noimagefound.png')}
           /> :
           <Image
             style={styles.image}

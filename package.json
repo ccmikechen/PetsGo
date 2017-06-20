@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "apsl-react-native-button": "^3.0.2",
+    "babel-plugin-transform-remove-console": "^6.8.4",
     "immutable": "^3.8.1",
     "phoenix": "^1.2.1",
     "react": "16.0.0-alpha.6",

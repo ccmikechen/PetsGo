@@ -36,8 +36,6 @@ class SignUp extends React.Component {
   }
 
   onSubmit(values) {
-    //console.log(this.props);
-    console.log('submitting form', values);
     this.props.createAccount({
       username: values.get('username'),
       password: values.get('password'),

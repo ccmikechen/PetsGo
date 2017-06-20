@@ -11,6 +11,6 @@ export default createStore(
     initialState,
     applyMiddleware(
         ReduxThunk,
-        createLogger({ stateTransformer: state => state.toJS() })
+//        createLogger({ stateTransformer: state => state.toJS() })
     )
 );

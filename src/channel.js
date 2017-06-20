@@ -5,7 +5,6 @@ const SOCKET_URL = 'ws://test.bearlab.io/socket';
 const configureChannel = () => {
   let socket = new Socket(SOCKET_URL, {
     logger: (kind, msg, data) => {
-      console.log(`${kind}: ${msg}`, data);
     }
   });
 

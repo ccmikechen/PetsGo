@@ -48,8 +48,6 @@ export const fetchAdoptionList = () => (dispatch) => {
 
 export const fetchShelterPositions = (address) => (dispatch) => {
   googleMap.getShelterPositions(address).then(results => {
-    console.log('address', address);
-    console.log('shelters', results);
     dispatch({
       type: UPDATE_SHELTER_POSITIONS,
       data: results

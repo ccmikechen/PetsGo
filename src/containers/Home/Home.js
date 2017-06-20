@@ -32,7 +32,6 @@ class Home extends React.Component {
   }
 
   handleScroll(event: Object) {
-    console.log(event.nativeEvent.contentOffset.y);
     if(event.nativeEvent.contentOffset.y > 20) {
 
     }

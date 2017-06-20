@@ -37,7 +37,6 @@ class NewPostScreen extends React.Component {
         });
       }
       if(event.id == 'post') {
-        console.log('handleSubmit', this.submitHandler.handleSubmit);
         this.submitHandler.handleSubmit()
         .then(response => {
           this.props.navigator.dismissModal({
